@@ -1,14 +1,46 @@
 import { registerRootComponent } from 'expo';
-import { StyleSheet, View } from 'react-native';
+import * as Font from 'expo-font';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import TitleButton from './components/TitleButton';
+import Modal from './components/Modal';
 
 
 const App = () => {
-  return (
+  const [openModal, setOpenModal] = useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  const loadFonts = async () => {
+    await Font.loadAsync({
+      'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
+      'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
+      'Montserrat-ExtraBold': require('../assets/fonts/Montserrat-ExtraBold.ttf'),
+    });
+
+    setFontsLoaded(true);
+  }
+
+  useEffect(() => {
+    loadFonts();
+  }, []);
+
+  return fontsLoaded && (
     <View style={styles.container}>
       {/* Teste seu componente aqui: */}
-      <TitleButton text='Clique aqui' />
+      <TouchableOpacity
+        onPress={() => setOpenModal(true)}
+        style={styles.button}
+      >
+        <Text style={{ backgroundColor: '#000', color: '#fff', height: 40 }}>Clique em mim</Text>
+      </TouchableOpacity>
+
+      <Modal
+        visible={openModal}
+        title="Título da Modal"
+        handleClose={() => setOpenModal(!openModal)}
+      >
+        <Text>OLá a modal agora esta aberta</Text>
+      </Modal>
     </View>
   );
 }
@@ -16,9 +48,10 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#BFB372'
+  },
+  button: {
+    marginTop: 70
   }
 });
 
