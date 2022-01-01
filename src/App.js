@@ -4,16 +4,21 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import Modal from './components/Modal';
+import Input from './components/Input';
+import { Masks } from 'react-native-mask-input';
 
 
 const App = () => {
   const [openModal, setOpenModal] = useState(false);
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
+  const [textInput, setTextInput] = useState("");
+
   const loadFonts = async () => {
     await Font.loadAsync({
       'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
       'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
+      'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
       'Montserrat-ExtraBold': require('../assets/fonts/Montserrat-ExtraBold.ttf'),
     });
 
@@ -23,6 +28,13 @@ const App = () => {
   useEffect(() => {
     loadFonts();
   }, []);
+
+  const handleTextInput = (masked, unmasked) => {
+    setTextInput(masked);
+
+    console.log("masked -> ", masked);
+    console.log("unmasked -> ", unmasked);
+  }
 
   return fontsLoaded && (
     <View style={styles.container}>
@@ -39,7 +51,15 @@ const App = () => {
         title="Título da Modal"
         handleClose={() => setOpenModal(!openModal)}
       >
-        <Text>OLá a modal agora esta aberta</Text>
+        <View>
+          <Input
+            value={textInput}
+            label="Nome Completo"
+            onChange={handleTextInput}
+            placeholder="Digite seu nome completo"
+          />
+
+        </View>
       </Modal>
     </View>
   );

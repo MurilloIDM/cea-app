@@ -4483,6 +4483,11 @@ react-native-gesture-handler@^2.1.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-mask-input@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-mask-input/-/react-native-mask-input-1.1.1.tgz#a75c39e53885eb7f9d8f09da19afab5184c494ad"
+  integrity sha512-euvDIj5XX13IxPzujYtrrwG5qZOnsQDd2N71FwQ2Q7nkw9YkpsP/MObCZePgQlXGBLnhRphvUQE+0amAClQC4Q==
+
 react-native-modal-popover@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-native-modal-popover/-/react-native-modal-popover-2.1.0.tgz#45a2060012796f29184e6c41b787f14336d3b435"
