@@ -1,7 +1,7 @@
-import { View, Text, TextInput } from 'react-native';
-import MaskInput from 'react-native-mask-input';
+import { View, Text, TextInput } from "react-native";
+import MaskInput from "react-native-mask-input";
 
-import styles from './styles';
+import styles from "./styles";
 
 const Input = (props) => {
   const { mask } = props;
@@ -17,11 +17,12 @@ const InputWithMask = ({
   value,
   focus,
   onChange,
+  required,
   placeholder,
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.label}>{label} {required && "*"}</Text>
 
       <MaskInput
         mask={mask}
@@ -42,11 +43,12 @@ const InputWithoutMask = ({
   value,
   focus,
   onChange,
+  required,
   placeholder,
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.label}>{label} {required && "*"}</Text>
 
       <TextInput
         value={value}
@@ -65,6 +67,7 @@ Input.defaultProps = {
   value: "",
   label: "",
   focus: false,
+  required: false,
   placeholder: "",
   type: "default",
 };
