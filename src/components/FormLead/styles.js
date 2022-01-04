@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     color: "#000",
     paddingBottom: 32,
     fontFamily: "Montserrat"
-  }
+  },
 });
 
 export default styles;

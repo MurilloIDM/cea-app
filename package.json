@@ -23,8 +23,7 @@
     "react-native-gesture-handler": "^2.1.0",
     "react-native-mask-input": "^1.1.1",
     "react-native-pager-view": "^5.4.9",
-    "react-native-web": "0.17.1",
-    "yup": "^0.32.11"
+    "react-native-web": "0.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 
 import Modal from "../Modal";
 import Input from "../Input";
+import Button from "../Button";
 
 import styles from "./styles";
 import { Masks } from "react-native-mask-input";
@@ -93,8 +94,8 @@ const FormLead = ({
         )}
 
         <Button
-          title="Inscrever-se"
-          onPress={submitForm}
+          text="Inscrever-se"
+          handleOnPress={submitForm}
         />
       </View>
     </Modal>
