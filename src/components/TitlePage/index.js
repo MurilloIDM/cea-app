@@ -1,10 +1,12 @@
 import { Text, View } from 'react-native';
 import styles from './styles';
 
-const TitlePage = ({text}) => {
+
+
+const TitlePage = ({styleTitle, text}) => {
     return (
         <View>
-            <Text style={styles.text}>{text}</Text>
+            <Text style={[styleTitle, styles.text]}>{text}</Text>
         </View>
     );
 }
