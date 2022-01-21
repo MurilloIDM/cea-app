@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-
 import * as Font from "expo-font";
 import { registerRootComponent } from "expo";
-import { StyleSheet, ScrollView } from "react-native";
 
-import Card from './components/Card';
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import Home from "./screens/Home";
+
+const Stack = createNativeStackNavigator();
+const { Navigator, Screen } = Stack;
 
 const datas = [
   {
@@ -63,26 +68,17 @@ const App = () => {
   }, []);
 
   return fontsLoaded && (
-    <ScrollView contentContainerStyle={{ alignItems: "center" }} style={styles.container}>
-      {/* Teste seu componente aqui: */}
-      {datas && datas.map((data) => {
-        return (
-          <Card
-            key={data.id}
-            data={data}
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Navigator screenOptions={{ headerShown: false }}>
+          <Screen
+            name="Home"
+            component={Home}
           />
-        )
-      })}
-    </ScrollView>
+        </Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider >
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 64,
-    backgroundColor: "#BFB372"
-  }
-});
 
 export default registerRootComponent(App);

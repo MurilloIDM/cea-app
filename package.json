@@ -14,6 +14,8 @@
     "@react-native-community/segmented-control": "^2.2.2",
     "@react-native-community/slider": "^4.1.12",
     "@react-native-picker/picker": "^2.2.1",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
     "expo": "~44.0.0",
     "expo-font": "~10.0.4",
     "expo-status-bar": "~1.2.0",
@@ -24,6 +26,8 @@
     "react-native-mask-input": "^1.1.1",
     "react-native-pager-view": "^5.4.9",
     "react-native-view-more-text": "^2.1.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "~3.10.1",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
