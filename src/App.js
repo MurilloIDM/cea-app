@@ -7,47 +7,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./screens/Home";
+import FreePost from "./screens/FreePost";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
-
-const datas = [
-  {
-    id: 1,
-    title: "Lorem ipsum dolor sit amet",
-    text: `Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Aeliquam erat volutpat. Aeliquam erat volutpat.`,
-    date: "21/01/2022",
-    urlImage: "https://www.senff.com.br/app/uploads/2018/05/paisagem-maravilhosa-wallpaper.jpg",
-  },
-  {
-    id: 2,
-    title: "Lorem ipsum dolor sit amet",
-    text: `Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Aeliquam erat volutpat. Aeliquam erat volutpat.`,
-    date: "21/01/2022",
-    urlImage: "https://www.senff.com.br/app/uploads/2018/05/paisagem-maravilhosa-wallpaper.jpg",
-  },
-  {
-    id: 3,
-    title: "Lorem ipsum dolor sit amet",
-    text: `Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Aeliquam erat volutpat. Aeliquam erat volutpat.`,
-    date: "21/01/2022",
-    urlImage: "https://www.senff.com.br/app/uploads/2018/05/paisagem-maravilhosa-wallpaper.jpg",
-  },
-  {
-    id: 4,
-    title: "Lorem ipsum dolor sit amet",
-    text: `Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Aeliquam erat volutpat. Aeliquam erat volutpat.`,
-    date: "21/01/2022",
-    urlImage: "https://www.senff.com.br/app/uploads/2018/05/paisagem-maravilhosa-wallpaper.jpg",
-  },
-  {
-    id: 5,
-    title: "Lorem ipsum dolor sit amet",
-    text: `Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Quisque finibus libero et commodo gravida. Sed vel mauris non leo faucsibus consterequat id et turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc nisl ex, finibus sit amet tristique non, porta non nibh. Aeliquam erat volutpat. Aeliquam erat volutpat. Aeliquam erat volutpat.`,
-    date: "21/01/2022",
-    urlImage: "https://www.senff.com.br/app/uploads/2018/05/paisagem-maravilhosa-wallpaper.jpg",
-  }
-]
 
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -74,6 +37,11 @@ const App = () => {
           <Screen
             name="Home"
             component={Home}
+          />
+
+          <Screen
+            name="FreeContent"
+            component={FreePost}
           />
         </Navigator>
       </NavigationContainer>

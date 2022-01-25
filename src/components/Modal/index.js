@@ -12,7 +12,7 @@ const Modal = ({
   return (
     <ModalNative
       visible={visible}
-      transparent={false}
+      transparent={true}
       animationType="slide"
       onRequestClose={handleClose}
     >

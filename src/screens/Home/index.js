@@ -1,5 +1,9 @@
+import React, { useEffect } from "react";
 import { View, Image, StatusBar, Linking } from "react-native";
 
+import "react-native-get-random-values";
+import { v4 as uuidV4 } from "uuid"; 
+import * as SecureStore from "expo-secure-store";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Button from "../../components/Button";
@@ -28,8 +32,14 @@ const Home = ({ navigation }) => {
     })
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     getFacebookLink();
+    const deviceId = await SecureStore.getItemAsync("secure_deviceId");
+    
+    if (!deviceId) {
+      const uuid = uuidV4();
+      await SecureStore.setItemAsync("secure_deviceId", JSON.stringify(uuid));
+    }
   }, []);
 
   return (
@@ -80,7 +90,7 @@ const Home = ({ navigation }) => {
           stylesButton={styles.freeContent}
           stylesText={styles.freeContentText}
           stylesAnimated={styles.freeContentAnimated}
-          handleOnPress={() => navigation.navigate('FreeContent', {})}
+          handleOnPress={() => navigation.navigate("FreeContent", {})}
         />
       </View>
     </SafeAreaView>

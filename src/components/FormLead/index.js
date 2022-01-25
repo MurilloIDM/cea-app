@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 
+import { Masks } from "react-native-mask-input";
+import * as SecureStore from "expo-secure-store";
+
 import Modal from "../Modal";
 import Input from "../Input";
 import Button from "../Button";
-
-import styles from "./styles";
-import { Masks } from "react-native-mask-input";
-import { validateFormLead } from "../../utils/formLead";
 import TagError from "../TagError";
+
+import { validateFormLead } from "../../utils/formLead";
+
+import styles from "./styles";  
 
 const FormLead = ({
   visible,
+  submit,
   handleClose,
 }) => {
   const [name, setName] = useState("");
@@ -46,8 +50,16 @@ const FormLead = ({
       return;
     }
 
-    // TODO: Implementar a chamada do serviço para salvar o LEAD
-    console.log('form submit -> ', values);
+    const deviceId = await SecureStore.getItemAsync("secure_deviceId");
+
+    const payload = {
+      name,
+      email,
+      phone,
+      deviceId: JSON.parse(deviceId),
+    };
+
+    await submit(payload);
   }
 
   return (
@@ -95,6 +107,7 @@ const FormLead = ({
 
         <Button
           text="Inscrever-se"
+          stylesText={styles.buttonSubscribe}
           handleOnPress={submitForm}
         />
       </View>

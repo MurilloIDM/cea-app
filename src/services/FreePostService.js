@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // TODO: Posteriormente o host deve ser armazenado em um .env
-const BASE_URL = "http://localhost:8080/freeposts";
+const BASE_URL = "http://192.168.100.196:8080/freeposts";
 
 const instance = axios.create({
   baseURL: BASE_URL,
@@ -19,11 +19,10 @@ export const listAllFreePost = async () =>  {
 
     return {
       data,
-      sucess: true,
-      message: "Successful request",
+      sucess: true
     };
   } catch (e) {
-    // TODO: Posteriormente o erro deve ser tratado e retornado (retornar status + mensagem)
     console.error(e);
+    throw e;
   }
 }

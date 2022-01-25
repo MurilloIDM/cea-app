@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
     fontFamily: "Montserrat"
   },
+  buttonSubscribe: {
+    fontFamily: "Montserrat-Bold",
+  }
 });
 
 export default styles;
