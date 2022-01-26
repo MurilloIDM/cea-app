@@ -1,4 +1,4 @@
-import { View, Image, StatusBar } from "react-native";
+import { View, Image, StatusBar, Linking } from "react-native";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -11,8 +11,27 @@ import iconFacebook from "../../../assets/images/icon_facebook.png";
 import iconInstagram from "../../../assets/images/icon_instagram.png";
 
 import styles from "./styles";
+import { useEffect, useState } from "react";
+
+
 
 const Home = ({ navigation }) => {
+  const [facebookUrl, setFacebookUrl] = useState("");
+
+  const fbUrlApp = "fb://page/625309614329540/";
+  const fbUrlWeb = "https://www.facebook.com/entendendoadolescencia/";
+
+
+  const getFacebookLink = async () => {
+    Linking.canOpenURL(fbUrlApp).then((result) => {
+      setFacebookUrl(result ? fbUrlApp : fbUrlWeb);
+    })
+  };
+
+  useEffect(() => {
+    getFacebookLink();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -20,9 +39,10 @@ const Home = ({ navigation }) => {
         backgroundColor="#BFB372"
       />
 
-      <View style={styles.containerSocial}>
+      {facebookUrl != "" && <View style={styles.containerSocial}>
+
         <SocialLink
-          url={"https://www.facebook.com/entendendoadolescencia/"}
+          url={facebookUrl}
           pathImage={iconFacebook}
           stylesImage={styles.iconSocial}
         />
@@ -38,7 +58,7 @@ const Home = ({ navigation }) => {
           pathImage={iconYoutube}
           stylesImage={styles.iconSocial}
         />
-      </View>
+      </View>}
 
       <Image
         resizeMode="contain"
