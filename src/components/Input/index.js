@@ -1,4 +1,5 @@
 import { View, Text, TextInput } from "react-native";
+
 import MaskInput from "react-native-mask-input";
 
 import styles from "./styles";

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Text, View, Image, Pressable } from 'react-native';
 import { AntDesign } from "@expo/vector-icons";
 
+import moment from "moment";
+
 import styles from "./styles";
 
 
@@ -13,13 +15,16 @@ const Card = ({ data }) => {
   const textButton = expand ? "Ver Menos" : "Ver Mais";
   const stylesExpand = !expand ? styles.closeCard : {};
 
+  const date = data && data.createdAt ? data.createdAt : "";
+  const dateFormatting = moment(date).format("DD/MM/YYYY");
+
   const handleExpand = () => setExpand(!expand);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <Image
           style={styles.cardImage}
-          source={{ uri: data.urlImage }}
+          source={{ uri: data.imageUrl }}
         />
 
         <View style={styles.content}>
@@ -30,10 +35,10 @@ const Card = ({ data }) => {
             numberOfLines={numberLines}
             style={[styles.text, stylesExpand]}
           >
-            {data.text}
+            {data.description}
           </Text>
 
-          <Text style={styles.date}>{data.date}</Text>
+          <Text style={styles.date}>{dateFormatting}</Text>
         </View>
 
         <Pressable

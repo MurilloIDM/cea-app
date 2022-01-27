@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   iconClose: {
     width: "8%",
+    marginTop: 6,
   }
 });
 

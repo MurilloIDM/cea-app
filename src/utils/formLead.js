@@ -34,9 +34,9 @@ export const validateFormLead = ({ name, email, phone }) => {
   if (phone.length !== 11) {
     return {
       success: false,
-      message: "O Número de Contato deve ser informado com o DDD.",
+      message: "O Número de Contato deve ser informado com o formato (00) 00000-0000.",
     };
   }
 
-  return { success: true, message: "" }
+  return { success: true, message: "" };
 }

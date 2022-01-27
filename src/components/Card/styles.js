@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "90%",
+    width: "100%",
     marginBottom: 32,
   },
   card: {
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-ExtraBold",
   },
   text: {
+    minHeight: 175,
     fontSize: 16,
     marginTop: 20,
     textAlign: "left",
