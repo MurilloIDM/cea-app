@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Image, StatusBar, Linking } from "react-native";
 
 import "react-native-get-random-values";
@@ -15,9 +15,6 @@ import iconFacebook from "../../../assets/images/icon_facebook.png";
 import iconInstagram from "../../../assets/images/icon_instagram.png";
 
 import styles from "./styles";
-import { useEffect, useState } from "react";
-
-
 
 const Home = ({ navigation }) => {
   const [facebookUrl, setFacebookUrl] = useState("");
