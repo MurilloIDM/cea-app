@@ -31,7 +31,7 @@ const App = () => {
   }, []);
 
   return fontsLoaded && (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={{ backgroundColor: "#BFB372"}}>
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
           <Screen
