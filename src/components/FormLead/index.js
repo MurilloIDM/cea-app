@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { View, Text, Modal } from "react-native";
 
 import { Masks } from "react-native-mask-input";
 import * as SecureStore from "expo-secure-store";
 
-import Modal from "../Modal";
 import Input from "../Input";
 import Button from "../Button";
 import TagError from "../TagError";
 
 import { validateFormLead } from "../../utils/formLead";
 
-import styles from "./styles";  
+import styles from "./styles";
 
 const FormLead = ({
   visible,
@@ -65,51 +65,70 @@ const FormLead = ({
   return (
     <Modal
       visible={visible}
-      title="Não perca tempo!"
-      handleClose={handleCloseForm}
+      style={styles.modal}
+      animationType="slide"
+      onRequestClose={handleCloseForm}
     >
       <View style={styles.container}>
-        <Text style={styles.description}>
-          Inscreva-se na lista de espera da Turma X do nosso curso
-          imersivo completo sobre Adolescência!
-        </Text>
+        <View style={styles.modalHeader}>
+          <AntDesign
+            size={22}
+            name="close"
+            onPress={handleClose}
+            style={styles.iconClose}
+          />
+        </View>
 
-        <Input
-          value={name}
-          required={true}
-          label="Nome Completo"
-          onChange={handleChangeName}
-          placeholder="Digite seu nome completo"
-        />
+        <View style={styles.modalApresentation}>
+          <Text style={styles.modalTitle}>
+            Não perca tempo!
+          </Text>
 
-        <Input
-          value={email}
-          required={true}
-          label="E-mail"
-          onChange={handleChangeEmail}
-          type="email-address"
-          placeholder="Digite seu e-mail principal"
-        />
+          <Text style={styles.description}>
+            Inscreva-se na lista de espera da Turma X do nosso curso
+            imersivo completo sobre Adolescência!
+          </Text>
+        </View>
 
-        <Input
-          value={phone}
-          mask={Masks.BRL_PHONE}
-          required={true}
-          label="Seu melhor número de contato"
-          onChange={handleChangePhone}
-          type="numeric"
-          placeholder="(00) 00000-0000"
-        />
 
-        {errorField && (
-          <TagError description={errorField} />
-        )}
+        <View style={styles.form}>
+          <Input
+            value={name}
+            required={true}
+            label="Nome Completo"
+            onChange={handleChangeName}
+            placeholder="Digite seu nome completo"
+          />
 
-        <Button
-          text="Inscrever-se"
-          stylesText={styles.buttonSubscribe}
-          handleOnPress={submitForm}
-        />
+          <Input
+            value={email}
+            required={true}
+            label="E-mail"
+            onChange={handleChangeEmail}
+            type="email-address"
+            placeholder="Digite seu e-mail principal"
+          />
+
+          <Input
+            value={phone}
+            mask={Masks.BRL_PHONE}
+            required={true}
+            label="Seu melhor número de contato"
+            onChange={handleChangePhone}
+            type="numeric"
+            placeholder="(00) 00000-0000"
+          />
+
+          {errorField && (
+            <TagError description={errorField} />
+          )}
+
+          <Button
+            text="Inscrever-se"
+            stylesText={styles.buttonSubscribe}
+            handleOnPress={submitForm}
+          />
+        </View>
       </View>
     </Modal>
   );
