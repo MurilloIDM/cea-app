@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // TODO: Posteriormente o host deve ser armazenado em um .env
-const BASE_URL = "https://cea-apk.herokuapp.com/leads";
+const BASE_URL = "https://cea-back.herokuapp.com/leads";
 
 const instance = axios.create({
   baseURL: BASE_URL,
