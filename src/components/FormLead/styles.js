@@ -3,13 +3,13 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    paddingTop: 16,
   },
   modalHeader: {
     width: "90%",
     alignSelf: "center",
     flexDirection: "row",
     justifyContent: "flex-end",
+    paddingTop: 16,
   },
   modalApresentation: {
     width: "90%",
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   form: {
     width: "90%",
     alignSelf: "center",
-    overflow: "scroll"
+    paddingBottom: 16,
   },
   buttonSubscribe: {
     fontFamily: "Montserrat-Bold",

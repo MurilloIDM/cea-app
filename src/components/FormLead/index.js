@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { View, Text, Modal } from "react-native";
+import { View, Text, Modal, KeyboardAvoidingView, ScrollView } from "react-native";
 
 import { Masks } from "react-native-mask-input";
 import * as SecureStore from "expo-secure-store";
@@ -69,67 +69,69 @@ const FormLead = ({
       animationType="slide"
       onRequestClose={handleCloseForm}
     >
-      <View style={styles.container}>
-        <View style={styles.modalHeader}>
-          <AntDesign
-            size={22}
-            name="close"
-            onPress={handleClose}
-            style={styles.iconClose}
-          />
-        </View>
+      <KeyboardAvoidingView contentContainerStyle={styles.container} behavior="height" enabled >
+        <ScrollView>
+          <View style={styles.modalHeader}>
+            <AntDesign
+              size={22}
+              name="close"
+              onPress={handleClose}
+              style={styles.iconClose}
+            />
+          </View>
 
-        <View style={styles.modalApresentation}>
-          <Text style={styles.modalTitle}>
-            Não perca tempo!
-          </Text>
+          <View style={styles.modalApresentation}>
+            <Text style={styles.modalTitle}>
+              Não perca tempo!
+            </Text>
 
-          <Text style={styles.description}>
-            Inscreva-se na lista de espera da Turma X do nosso curso
-            imersivo completo sobre Adolescência!
-          </Text>
-        </View>
+            <Text style={styles.description}>
+              Inscreva-se na lista de espera da Turma X do nosso curso
+              imersivo completo sobre Adolescência!
+            </Text>
+          </View>
 
 
-        <View style={styles.form}>
-          <Input
-            value={name}
-            required={true}
-            label="Nome Completo"
-            onChange={handleChangeName}
-            placeholder="Digite seu nome completo"
-          />
+          <View style={styles.form}>
+            <Input
+              value={name}
+              required={true}
+              label="Nome Completo"
+              onChange={handleChangeName}
+              placeholder="Digite seu nome completo"
+            />
 
-          <Input
-            value={email}
-            required={true}
-            label="E-mail"
-            onChange={handleChangeEmail}
-            type="email-address"
-            placeholder="Digite seu e-mail principal"
-          />
+            <Input
+              value={email}
+              required={true}
+              label="E-mail"
+              onChange={handleChangeEmail}
+              type="email-address"
+              placeholder="Digite seu e-mail principal"
+            />
 
-          <Input
-            value={phone}
-            mask={Masks.BRL_PHONE}
-            required={true}
-            label="Seu melhor número de contato"
-            onChange={handleChangePhone}
-            type="numeric"
-            placeholder="(00) 00000-0000"
-          />
+            <Input
+              value={phone}
+              mask={Masks.BRL_PHONE}
+              required={true}
+              label="Seu melhor número de contato"
+              onChange={handleChangePhone}
+              type="numeric"
+              placeholder="(00) 00000-0000"
+            />
 
-          {errorField && (
-            <TagError description={errorField} />
-          )}
+            {errorField && (
+              <TagError description={errorField} />
+            )}
 
-          <Button
-            text="Inscrever-se"
-            stylesText={styles.buttonSubscribe}
-            handleOnPress={submitForm}
-          />
-        </View>
-      </View>
+            <Button
+              text="Inscrever-se"
+              stylesText={styles.buttonSubscribe}
+              handleOnPress={submitForm}
+            />
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
