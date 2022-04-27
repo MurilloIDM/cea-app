@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./screens/Home";
 import FreePost from "./screens/FreePost";
+import Login from "./screens/Login";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
@@ -43,9 +44,17 @@ const App = () => {
             name="FreeContent"
             component={FreePost}
           />
+          
+          <Screen
+          name="LoginEmail"
+          component={Login}
+          />
         </Navigator>
       </NavigationContainer>
-    </SafeAreaProvider >
+  </SafeAreaProvider >
+  
+  
+  
   );
 }
 
