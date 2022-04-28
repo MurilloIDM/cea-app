@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import FreePost from "./screens/FreePost";
 import Login from "./screens/Login";
+import ExclusivePost from "./screens/ExclusivePost";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
@@ -32,7 +33,7 @@ const App = () => {
   }, []);
 
   return fontsLoaded && (
-    <SafeAreaProvider style={{ backgroundColor: "#BFB372"}}>
+    <SafeAreaProvider style={{ backgroundColor: "#BFB372" }}>
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
           <Screen
@@ -44,17 +45,23 @@ const App = () => {
             name="FreeContent"
             component={FreePost}
           />
+
+          <Screen
+            name="LoginEmail"
+            component={Login}
+          />
           
           <Screen
-          name="LoginEmail"
-          component={Login}
+            name="ExclusiveContent"
+            component={ExclusivePost}
           />
+
         </Navigator>
       </NavigationContainer>
-  </SafeAreaProvider >
-  
-  
-  
+    </SafeAreaProvider >
+
+
+
   );
 }
 
