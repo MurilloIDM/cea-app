@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView, ScrollView} from 'react-native';
+import { Text, View, Image, KeyboardAvoidingView} from 'react-native';
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
