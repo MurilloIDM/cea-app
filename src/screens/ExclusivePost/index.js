@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { ScrollView, Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
@@ -11,7 +11,7 @@ import styles from "./styles";
 
 
 const ExclusivePost = () => {
-  const [modalVisible, setModalVisivle] = useState(true)
+  const [modalVisible, setModalVisivle] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,8 +24,9 @@ const ExclusivePost = () => {
         />
         <Feather
           name="menu"
-          size={32}
+          size={40}
           color="black"
+          onPress={() => setModalVisivle(true)}
         />
       </View>
       <ScrollView>
@@ -33,7 +34,7 @@ const ExclusivePost = () => {
       </ScrollView>
       <MenuConfig
         visible={modalVisible}
-        handleClose={() => console.log("closed")}
+        handleClose={() => setModalVisivle(false)}
       />
     </SafeAreaView>
   )
