@@ -52,8 +52,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingLeft: 0,
     paddingRight: 50,
-    //backgroundColor: "blue",
-    //borderWidth: 1
   }
 });
 
