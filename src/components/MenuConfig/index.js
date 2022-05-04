@@ -48,14 +48,14 @@ const MenuConfig = ({
                 style={styles.menuItem}
                 onPress={() => setConfigModalVisible(true)}
               >
-                <AntDesign name="setting" size={40} color="#0b0b0b" />
+                <AntDesign name="setting" size={32} color="#0b0b0b" />
                 <Text style={styles.label} >Configurações</Text>
               </Pressable>
               <Pressable
                 style={styles.menuItem}
                 onPress={() => console.log('Saiu da aplicação')}
               >
-                <AntDesign name="logout" size={40} color="#0b0b0b" />
+                <AntDesign name="logout" size={32} color="#0b0b0b" />
                 <Text style={styles.label}>Sair</Text>
               </Pressable>
 
@@ -98,7 +98,7 @@ const MenuConfig = ({
               <View style={styles.modalContent}>
                 <Pressable
                   style={styles.headerConfigMenu}
-                  onPress={() => { console.log('voltar'); setConfigModalVisible(false) }}
+                  onPress={() => { setConfigModalVisible(false) }}
                 >
                   <AntDesign
                     name="left"
@@ -115,21 +115,21 @@ const MenuConfig = ({
                   style={styles.menuItem}
                   onPress={() => console.log('Vai para troca de senha')}
                 >
-                  <AntDesign name="lock1" size={40} color="#0b0b0b" />
+                  <AntDesign name="lock1" size={32} color="#0b0b0b" />
                   <Text style={styles.label} >Trocar de senha</Text>
                 </Pressable>
                 <Pressable
                   style={styles.menuItem}
                   onPress={() => Linking.openURL('mailto:contato@talmidimcoaching.com.br')}
                 >
-                  <AntDesign name="mail" size={40} color="#0b0b0b" />
+                  <AntDesign name="mail" size={32} color="#0b0b0b" />
                   <Text style={styles.label}>Fale Conosco</Text>
                 </Pressable>
                 <Pressable
                   style={styles.menuItem}
                   onPress={() => console.log('Abrir termos de uso')}
                 >
-                  <AntDesign name="filetext1" size={40} color="#0b0b0b" />
+                  <AntDesign name="filetext1" size={32} color="#0b0b0b" />
                   <Text style={styles.label}>Termos de uso</Text>
                 </Pressable>
               </View>

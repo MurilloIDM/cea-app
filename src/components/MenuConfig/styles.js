@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   label: {
-    marginLeft: 16,
+    marginLeft: 8,
     fontSize: 18,
     fontWeight: "bold",
   },
