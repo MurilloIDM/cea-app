@@ -36,10 +36,6 @@ const App = () => {
     <SafeAreaProvider style={{ backgroundColor: "#BFB372" }}>
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
-          <Screen
-            name="ExclusiveContent"
-            component={ExclusivePost}
-          />
 
           <Screen
             name="Home"
@@ -56,6 +52,10 @@ const App = () => {
             component={Login}
           />
 
+          <Screen
+            name="ExclusiveContent"
+            component={ExclusivePost}
+          />
         </Navigator>
       </NavigationContainer>
     </SafeAreaProvider >
