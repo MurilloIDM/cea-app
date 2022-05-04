@@ -11,7 +11,7 @@ import styles from "./styles";
 
 
 const ExclusivePost = () => {
-  const [modalVisible, setModalVisivle] = useState(false)
+  const [menuVisible, setMenuVisible] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,15 +26,15 @@ const ExclusivePost = () => {
           name="menu"
           size={40}
           color="black"
-          onPress={() => setModalVisivle(true)}
+          onPress={() => setMenuVisible(true)}
         />
       </View>
       <ScrollView>
         {/* Componente Listagem */}
       </ScrollView>
       <MenuConfig
-        visible={modalVisible}
-        handleClose={() => setModalVisivle(false)}
+        visible={menuVisible}
+        handleClose={() => setMenuVisible(false)}
       />
     </SafeAreaView>
   )
