@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { ScrollView, Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
 import logoMain from "../../../assets/images/logoMain.png";
 
+import MenuConfig from "../../components/MenuConfig";
+
 import styles from "./styles";
 
+
 const ExclusivePost = () => {
+  const [menuVisible, setMenuVisible] = useState(false)
+
   return (
     <SafeAreaView style={styles.container}>
 
@@ -19,14 +24,18 @@ const ExclusivePost = () => {
         />
         <Feather
           name="menu"
-          size={32}
+          size={40}
           color="black"
+          onPress={() => setMenuVisible(true)}
         />
       </View>
       <ScrollView>
         {/* Componente Listagem */}
       </ScrollView>
-      {/* Componente Menu */}
+      <MenuConfig
+        visible={menuVisible}
+        handleClose={() => setMenuVisible(false)}
+      />
     </SafeAreaView>
   )
 }
