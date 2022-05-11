@@ -5,6 +5,7 @@ import { Feather } from "@expo/vector-icons";
 
 import logoMain from "../../../assets/images/logoMain.png";
 
+import ExclusivePostContainer from "../../components/ExclusivePostContainer";
 import MenuConfig from "../../components/MenuConfig";
 
 import styles from "./styles";
@@ -29,6 +30,11 @@ const ExclusivePost = () => {
           onPress={() => setMenuVisible(true)}
         />
       </View>
+
+      <ExclusivePostContainer>
+
+      </ExclusivePostContainer>
+
       <MenuConfig
         visible={menuVisible}
         handleClose={() => setMenuVisible(false)}
