@@ -10,6 +10,7 @@ import Home from "./screens/Home";
 import FreePost from "./screens/FreePost";
 import Login from "./screens/Login";
 import ExclusivePost from "./screens/ExclusivePost";
+import LoaderLogin from "./screens/LoaderLogin";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
@@ -36,7 +37,6 @@ const App = () => {
     <SafeAreaProvider style={{ backgroundColor: "#BFB372" }}>
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
-
           <Screen
             name="Home"
             component={Home}
@@ -48,8 +48,13 @@ const App = () => {
           />
 
           <Screen
-            name="LoginEmail"
+            name="EmailLogin"
             component={Login}
+          />
+
+          <Screen
+            name="LoaderLogin"
+            component={LoaderLogin}
           />
 
           <Screen
@@ -59,10 +64,7 @@ const App = () => {
 
         </Navigator>
       </NavigationContainer>
-    </SafeAreaProvider >
-
-
-
+    </SafeAreaProvider>
   );
 }
 

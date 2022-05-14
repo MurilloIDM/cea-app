@@ -7,9 +7,6 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       backgroundColor: "#BFB372"
     },
-    statusBar: {
-      backgroundColor: "#BFB372"
-    },
     logo: {
       width: 300, 
       alignSelf: "center",
