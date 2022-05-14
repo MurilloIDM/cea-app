@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   paginationText: {
-    paddingHorizontal: 8
+    paddingHorizontal: 4
   }
 });
 

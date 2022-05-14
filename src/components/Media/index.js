@@ -21,9 +21,9 @@ const DATAMOCK = [
 ]
 
 
-const Carousel = (medias) => {//medias chegarão via props
+const Media = (data) => {
 
-  medias = DATAMOCK;//inicializando com MockUp
+  data = DATAMOCK;
 
   const [slideActive, setSlideActive] = useState(0);
 
@@ -41,7 +41,7 @@ const Carousel = (medias) => {//medias chegarão via props
         showsHorizontalScrollIndicator={false}
         onScroll={getActiveSlide}
       >
-        {medias && medias.map((media) => (
+        {data && data.map((media) => (
           <Image
             key={media.id}
             source={{ uri: media.url }}
@@ -50,9 +50,9 @@ const Carousel = (medias) => {//medias chegarão via props
         ))
         }
       </ScrollView>
-      <View style={styles.pagination}>
-        {medias && medias.map((media, i) => (
-          <FontAwesome 
+      {data.length > 1 && <View style={styles.pagination}>
+        {data.map((media, i) => (
+          <FontAwesome
             key={media.id}
             name="circle"
             size={8}
@@ -61,9 +61,9 @@ const Carousel = (medias) => {//medias chegarão via props
           />
         ))}
 
-      </View>
+      </View>}
     </View>
   );
 }
 
-export default Carousel;
+export default Media;
