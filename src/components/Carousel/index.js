@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, ScrollView, Image, Text } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 
 import styles from "./styles";
@@ -52,10 +52,10 @@ const Carousel = (medias) => {//medias chegarão via props
       </ScrollView>
       <View style={styles.pagination}>
         {medias && medias.map((media, i) => (
-          <AntDesign
+          <FontAwesome 
             key={media.id}
-            name="heart"
-            size={12}
+            name="circle"
+            size={8}
             color={i === slideActive ? "#0B0B0B" : "lightgray"}
             style={styles.paginationText}
           />

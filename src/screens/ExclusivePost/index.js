@@ -5,7 +5,6 @@ import { Feather } from "@expo/vector-icons";
 
 import logoMain from "../../../assets/images/logoMain.png";
 
-import Carousel from "../../components/Carousel"
 import MenuConfig from "../../components/MenuConfig";
 
 import styles from "./styles";
@@ -30,12 +29,6 @@ const ExclusivePost = () => {
           onPress={() => setMenuVisible(true)}
         />
       </View>
-<<<<<<< Updated upstream
-      <Carousel />
-=======
-
-      
->>>>>>> Stashed changes
       <MenuConfig
         visible={menuVisible}
         handleClose={() => setMenuVisible(false)}
