@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, Image, View } from "react-native";
+import { Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
@@ -29,9 +29,6 @@ const ExclusivePost = () => {
           onPress={() => setMenuVisible(true)}
         />
       </View>
-      <ScrollView>
-        {/* Componente Listagem */}
-      </ScrollView>
       <MenuConfig
         visible={menuVisible}
         handleClose={() => setMenuVisible(false)}
