@@ -10,6 +10,7 @@ import Home from "./screens/Home";
 import FreePost from "./screens/FreePost";
 import Login from "./screens/Login";
 import ExclusivePost from "./screens/ExclusivePost";
+import InDbWithPass from "./screens/InDbWithPass";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
@@ -45,6 +46,11 @@ const App = () => {
           <Screen
             name="EmailLogin"
             component={Login}
+          />
+
+          <Screen
+            name="InDbWithPass"
+            component={InDbWithPass}
           />
 
           <Screen
