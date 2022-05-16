@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     height: width
   },
   container: {
-    width,
-    marginBottom: 200
+    width
   },
   scroll: {
     width
