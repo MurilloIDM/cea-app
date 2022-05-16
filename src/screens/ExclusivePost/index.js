@@ -9,7 +9,6 @@ import MenuConfig from "../../components/MenuConfig";
 
 import styles from "./styles";
 
-
 const ExclusivePost = () => {
   const [menuVisible, setMenuVisible] = useState(false)
 
@@ -29,6 +28,7 @@ const ExclusivePost = () => {
           onPress={() => setMenuVisible(true)}
         />
       </View>
+
       <MenuConfig
         visible={menuVisible}
         handleClose={() => setMenuVisible(false)}
