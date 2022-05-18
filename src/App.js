@@ -38,6 +38,11 @@ const App = () => {
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
           <Screen
+            name="ExclusiveContent"
+            component={ExclusivePost}
+          />
+
+          <Screen
             name="Home"
             component={Home}
           />
@@ -57,10 +62,7 @@ const App = () => {
             component={LoaderLogin}
           />
 
-          <Screen
-            name="ExclusiveContent"
-            component={ExclusivePost}
-          />
+
 
         </Navigator>
       </NavigationContainer>

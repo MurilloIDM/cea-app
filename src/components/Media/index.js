@@ -21,7 +21,7 @@ const DATAMOCK = [
 ]
 
 
-const Media = (data) => {
+const Media = ({ data }) => {
 
   data = DATAMOCK;
 
