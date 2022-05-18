@@ -37,6 +37,7 @@ const App = () => {
     <SafeAreaProvider style={{ backgroundColor: "#BFB372" }}>
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
+
           <Screen
             name="Home"
             component={Home}
