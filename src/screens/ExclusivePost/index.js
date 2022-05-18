@@ -14,7 +14,7 @@ const DATAMOCK = {
   id: 1,
   title: "Título do Post",
   type: "TEXT",
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur odit, animi sapiente veritatis harum delectus quibusdam maiores vel, magni est iste voluptatem earum dolor placeat illo facilis natus eos amet?',
+  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur odit, animi sapiente veritatis harum delectus quibusdam maiores vel, magni est iste voluptatem earum dolor placeat illo facilis natus eos amet? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur odit, animi sapiente veritatis harum delectus quibusdam maiores vel, magni est iste voluptatem earum dolor placeat illo facilis natus eos amet?',
   status: true,
   filed: true,
   createdAt: null,

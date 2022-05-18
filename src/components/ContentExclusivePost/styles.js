@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#DDDDDD',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 4
+    paddingHorizontal: 4,
+    paddingVertical: 4
   },
   title: {
     fontFamily: 'Montserrat-Bold',
@@ -29,6 +30,24 @@ const styles = StyleSheet.create({
   description: {
     fontFamily: 'Montserrat',
     fontSize: 14,
+  },
+  commentContainer: {
+    backgroundColor: 'white',
+    borderTopColor: '#DDDDDD',
+    borderTopWidth: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  commentText: {
+    marginLeft: 8,
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 14
+  },
+  seeMoreLessText: {
+    fontFamily: 'Montserrat-Bold'
   }
 });
 
