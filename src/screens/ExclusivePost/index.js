@@ -5,7 +5,7 @@ import { Feather } from "@expo/vector-icons";
 
 import logoMain from "../../../assets/images/logoMain.png";
 
-import ExclusivePostContainer from "../../components/ExclusivePostContainer";
+import ExclusivePostListing from "../../components/ExclusivePostListing";
 import MenuConfig from "../../components/MenuConfig";
 
 import styles from "./styles";
@@ -31,9 +31,7 @@ const ExclusivePost = () => {
         />
       </View>
 
-      <ExclusivePostContainer>
-
-      </ExclusivePostContainer>
+      <ExclusivePostListing />
 
       <MenuConfig
         visible={menuVisible}

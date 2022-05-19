@@ -5,25 +5,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import styles from "./styles";
 
-const DATAMOCK = [
-  {
-    id: 1,
-    url: "https://source.unsplash.com/random/300x300/?productivity",
-  },
-  {
-    id: 2,
-    url: "https://source.unsplash.com/random/300x300/?city",
-  },
-  {
-    id: 3,
-    url: "https://source.unsplash.com/random/300x300/?fruit",
-  },
-]
-
 
 const Media = ({ data }) => {
 
-  data = DATAMOCK;
 
   const [slideActive, setSlideActive] = useState(0);
 
