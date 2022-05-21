@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import TagError from "../../components/TagError";
 {/*import PassRecovery from "../PassRecovery";*/}
 
-import { validateLogin } from "../../utils/login";
+import { validatePassword } from "../../utils/password";
 
 import logo from "../../../assets/images/logo.png";
 
@@ -16,8 +16,10 @@ import styles from "./styles";
 const InDbWithPass = ({ navigation }) => {
 
     const email = "cris@gmail.com";
+    
     const [password, setPassword] = useState("");
     const [errorField, setErrorField] = useState(false);
+    const [hidePass, setHidePass] = useState(true)
 
     const handleChangePassword = (value) => setPassword(value);
 
@@ -30,7 +32,8 @@ const InDbWithPass = ({ navigation }) => {
         setErrorField(false);
 
         const values = { password };
-        const { success, message } = validateLogin(values);
+        const { success, message } = validatePassword(values);
+        console.log(password);
         
         if (!success) {
 
@@ -39,11 +42,6 @@ const InDbWithPass = ({ navigation }) => {
             return;
         }
 
-        const payload = {
-            email
-        };
-        
-    
     };
 
     const forgotPassword = () => {
@@ -83,47 +81,52 @@ const InDbWithPass = ({ navigation }) => {
                 </View>
 
                 <View>
+
                     <Text style={styles.labelPass}>
                         Senha
                     </Text>
 
                     <View style={styles.form}>
+                        <View style={styles.input}>
                         <Input
                             value={password}
                             required={false}
                             onChange={handleChangePassword}
-                            type="password"
+                            type="default"
                             blurOnSubmit={true}
                             keybordType="default"
                             placeholder={"Insira sua senha"}
+                            maxLength={8}
                             //secureTextEntry={"true"} VERIFICAR COMO INSERIR
                                             
                         />
+                        </View>
+
                         <AntDesign
                             size={32}
                             name="eyeo"
                             style={styles.eyeo}
                         />
-                    
-                    </View>
 
-                    <View >
-                        <TouchableOpacity onPress={forgotPassword}>     
-                            <Text style={styles.forgot}>
-                                Esqueceu sua senha?
-                            </Text>
-                        </TouchableOpacity>   
-                    </View>
+                        <View >
+                            <TouchableOpacity onPress={forgotPassword}>     
+                                <Text style={styles.forgot}>
+                                    Esqueceu sua senha?
+                                </Text>
+                            </TouchableOpacity>   
+                        </View>
                         
-                    {errorField && (
-                        <TagError description={errorField} />
-                    )}
+                        {errorField && (
+                            <TagError description={errorField} />
+                        )}
 
-                    <Button
-                        text="Próximo"
-                        stylesText={styles.buttonSubscribe}
-                        handleOnPress={submitForm}
-                    />
+                        <Button
+                            text="Próximo"
+                            stylesText={styles.buttonSubscribe}
+                            handleOnPress={submitForm}
+                        />
+                    
+                    </View> 
                 </View>
             </View>
             

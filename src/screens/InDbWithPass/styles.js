@@ -46,36 +46,37 @@ const styles = StyleSheet.create({
       fontFamily: "Montserrat-Bold",
       fontSize: 14,
       margin:24,
-      marginBottom: 0
+      marginBottom: 0,
+      width: "90%"
     },
     
     form: {
       width: "90%",
       alignSelf: "center",
       overflow: "scroll",
-      borderWidth: 1,
-      padding: 0,
-      //margin: 0,
+      padding: 0
     },
 
     input :{
-      width: "85%",
+      width: "100%",
     },
 
     eyeo: {
-        textAlign: "right",
-        position: "absolute",
-        top: 35,
-        right: 10,
-        display: "flex",
-        alignItems: "center",
-        color: "#000",
+      //borderWidth: 1,
+     // borderColor:"red",
+      textAlign: "right",
+      position: "absolute",
+      top: 45,
+      right: 10,
+      display: "flex",
+      alignItems: "center",
+      color: "#000",
     },
 
-      buttonSubscribe: {
+    buttonSubscribe: {
       borderColor: "red",
       fontFamily: "Montserrat-Bold",
-      textAlign: "center",
+      textAlign: "center", 
     },
 
     forgot: {
