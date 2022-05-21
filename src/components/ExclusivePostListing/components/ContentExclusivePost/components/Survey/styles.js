@@ -6,7 +6,8 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     width,
-    padding: 8,
+    paddingHorizontal: 8,
+    paddingBottom: 16,
     backgroundColor: 'white'
   },
   topicContainer: {
@@ -35,8 +36,8 @@ const styles = StyleSheet.create({
   },
   percentBox: {
     flexDirection: 'row',
-    alignItems:'center',
-    justifyContent:'flex-end'
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   },
   percentBar: {
     position: "absolute",

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { View, Text, Pressable } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 
-import Media from '../Media';
-import Survey from '../Survey';
+import Media from './components/Media';
+import Survey from './components/Survey';
 
 import styles from "./styles";
 
@@ -13,13 +13,14 @@ const ContentExclusivePost = ({ data }) => {
   const [descriptionEllipsis, setDescriptionEllipsis] = useState(false);
   const [descriptionLength, setDescriptionLength] = useState(0);
   const [seeMoreClicked, setSeeMoreClicked] = useState(false);
-
-  const descriptionLengthInitialValue = 200;
+  const [descriptionLengthInitialValue, setDescriptionLengthInitialValue] = useState(200);
 
   useEffect(() => {
     setPost(data);
-    setDescriptionEllipsis(data.description.length > descriptionLengthInitialValue ? true : false);
-    setDescriptionLength(descriptionLengthInitialValue);
+    const initialLength = data.media.length === 0 ? descriptionLengthInitialValue * 5 : descriptionLengthInitialValue;
+    data.media.length === 0 && setDescriptionLengthInitialValue(initialLength)
+    setDescriptionLength(initialLength);
+    setDescriptionEllipsis(data.description.length > initialLength ? true : false);
   }, [])
 
   const handleSeeMore = () => {

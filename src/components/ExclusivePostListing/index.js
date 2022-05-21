@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView } from "react-native";
 
-import ContentExclusivePost from '../ContentExclusivePost';
+import ContentExclusivePost from './components/ContentExclusivePost';
 
 //import styles from "./styles";
 
