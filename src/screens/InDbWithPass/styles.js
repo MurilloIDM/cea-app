@@ -57,11 +57,22 @@ const styles = StyleSheet.create({
       padding: 0
     },
 
-    input :{
+    container2 :{
       width: "100%",
     },
 
-    eyeo: {
+    inputArea: {
+
+    },
+
+    icon: {
+      width:'15%',
+      height:50,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+  /*eyeo: {
       //borderWidth: 1,
      // borderColor:"red",
       textAlign: "right",
@@ -71,7 +82,7 @@ const styles = StyleSheet.create({
       display: "flex",
       alignItems: "center",
       color: "#000",
-    },
+    },*/
 
     buttonSubscribe: {
       borderColor: "red",

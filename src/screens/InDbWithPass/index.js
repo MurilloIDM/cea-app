@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
-import { AntDesign } from "@expo/vector-icons";
+import { Text, View, Image, KeyboardAvoidingView,ScrollView, TouchableOpacity} from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -19,7 +19,7 @@ const InDbWithPass = ({ navigation }) => {
     
     const [password, setPassword] = useState("");
     const [errorField, setErrorField] = useState(false);
-    const [hidePass, setHidePass] = useState(true)
+    const [hidePass, setHidePass] = useState(false);
 
     const handleChangePassword = (value) => setPassword(value);
 
@@ -50,8 +50,8 @@ const InDbWithPass = ({ navigation }) => {
     
         
     return(
-        <KeyboardAvoidingView behavior="height">
-            
+ //       <KeyboardAvoidingView behavior="height">
+ //           <ScrollView>
             <View style={styles.container}>
                 <View>
                     <Image
@@ -87,38 +87,42 @@ const InDbWithPass = ({ navigation }) => {
                     </Text>
 
                     <View style={styles.form}>
-                        <View style={styles.input}>
-                        <Input
-                            value={password}
-                            required={false}
-                            onChange={handleChangePassword}
-                            type="default"
-                            blurOnSubmit={true}
-                            keybordType="default"
-                            placeholder={"Insira sua senha"}
-                            maxLength={8}
-                            //secureTextEntry={"true"} VERIFICAR COMO INSERIR
-                                            
-                        />
-                        </View>
-
-                        <AntDesign
-                            size={32}
-                            name="eyeo"
-                            style={styles.eyeo}
-                        />
-
                         <View >
-                            <TouchableOpacity onPress={forgotPassword}>     
-                                <Text style={styles.forgot}>
-                                    Esqueceu sua senha?
-                                </Text>
-                            </TouchableOpacity>   
+                            <View style={styles.bla}>
+                                <Input
+                                    value={password}
+                                    required={false}
+                                    onChange={handleChangePassword}
+                                    type="default"
+                                    blurOnSubmit={true}
+                                    keybordType="default"
+                                    placeholder={"Insira sua senha"}
+                                    maxLength={8}
+                                    secureTextEntry={hidePass}// VERIFICAR COMO INSERIR                    
+                                />
+                                 {errorField && (
+                                 <TagError description={errorField} />
+                                )}
+
+                                <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
+                                    {hidePass ?
+                                        <Ionicons name="eye" color="#000000" size={25}/>
+                                        :
+                                        <Ionicons name="eye-off" color="#000000" size={25}/>
+                                    }
+                                </TouchableOpacity>
+                            </View>
+
                         </View>
+                            <View >
+                                <TouchableOpacity onPress={forgotPassword}>     
+                                    <Text style={styles.forgot}>
+                                        Esqueceu sua senha?
+                                    </Text>
+                                </TouchableOpacity>   
+                            </View>
                         
-                        {errorField && (
-                            <TagError description={errorField} />
-                        )}
+                       
 
                         <Button
                             text="Próximo"
@@ -129,8 +133,8 @@ const InDbWithPass = ({ navigation }) => {
                     </View> 
                 </View>
             </View>
-            
-        </KeyboardAvoidingView>
+//            </ScrollView>   
+//        </KeyboardAvoidingView>
     );
 
 };
