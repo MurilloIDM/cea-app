@@ -52,7 +52,7 @@ const Survey = ({
           key={pollTopic.id}
           style={[
             styles.topicContainer,
-            { backgroundColor: topicVoted && topicVoted.id === pollTopic.id ? '#BFB372' : 'lightgray' }
+            { backgroundColor: topicVoted && topicVoted.id === pollTopic.id ? '#BFB372' : '#EEE' }
           ]}
         >
           {voted && <View style={[

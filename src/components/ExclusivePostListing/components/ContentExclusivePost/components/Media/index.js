@@ -1,34 +1,18 @@
 import { useState } from "react";
-import { View, ScrollView, Image, Text } from "react-native";
+import { View, ScrollView, Image } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 
 
 import styles from "./styles";
 
-const DATAMOCK = [
-  {
-    id: 1,
-    url: "https://source.unsplash.com/random/300x300/?productivity",
-  },
-  {
-    id: 2,
-    url: "https://source.unsplash.com/random/300x300/?city",
-  },
-  {
-    id: 3,
-    url: "https://source.unsplash.com/random/300x300/?fruit",
-  },
-]
-
 
 const Media = ({ data }) => {
 
-  data = DATAMOCK;
 
   const [slideActive, setSlideActive] = useState(0);
 
   const getActiveSlide = ({ nativeEvent }) => {
-    const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
+    const slide = Math.round(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
     if (slide !== slideActive) setSlideActive(slide);
   }
 

@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     width: '100%',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: 'lightgray',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 4,
-    paddingVertical: 4
+    paddingVertical: 8
   },
   title: {
     fontFamily: 'Montserrat-Bold',
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     borderTopColor: '#DDDDDD',
     borderTopWidth: 1,
     paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingTop: 8,
+    paddingBottom: 16,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
