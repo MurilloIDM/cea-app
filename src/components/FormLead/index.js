@@ -17,6 +17,7 @@ const FormLead = ({
   visible,
   submit,
   handleClose,
+  isNotStudent,
 }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -82,6 +83,7 @@ const FormLead = ({
 
           <View style={styles.modalApresentation}>
             <Text style={styles.modalTitle}>
+              {isNotStudent && "Opa! Parece que você ainda não é nosso aluno."}
               Não perca tempo!
             </Text>
 

@@ -22,7 +22,6 @@ const Home = ({ navigation }) => {
   const fbUrlApp = "fb://page/625309614329540/";
   const fbUrlWeb = "https://www.facebook.com/entendendoadolescencia/";
 
-
   const getFacebookLink = async () => {
     Linking.canOpenURL(fbUrlApp).then((result) => {
       setFacebookUrl(result ? fbUrlApp : fbUrlWeb);
@@ -75,11 +74,10 @@ const Home = ({ navigation }) => {
 
       <View style={styles.containerButtons}>
         <Button
-          text="Entrar"
-          disabled={true}
+          text="Acessar Comunidade"
           stylesButton={styles.buttonLogin}
           stylesText={styles.buttonLoginText}
-          handleOnPress={() => console.log("Entrar")}
+          handleOnPress={() => navigation.navigate("EmailLogin", {})}
         />
 
         <Button
