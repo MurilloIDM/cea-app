@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     width: "92%",
     fontSize: 24,
     fontFamily: "Montserrat-ExtraBold",
+    textAlign: "center"
   },
   iconClose: {
     width: "8%",

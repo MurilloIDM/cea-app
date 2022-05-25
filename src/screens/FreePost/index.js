@@ -13,9 +13,9 @@ import FormLead from "../../components/FormLead";
 import TitlePage from "../../components/TitlePage";
 import ModalLoader from "../../components/ModalLoader";
 
-import { saveLead } from "../../services/LeadService";
-import { findByDeviceId } from "../../services/LeadService";
-import { listAllFreePost } from "../../services/FreePostService";
+import { saveLead } from "../../network/services/LeadService";
+import { findByDeviceId } from "../../network/services/LeadService";
+import { listAllFreePost } from "../../network/services/FreePostService";
 
 import styles from "./styles";
 
