@@ -47,7 +47,7 @@ const InputWithoutMask = ({
   required,
   placeholder,
   maxLength,
-  
+  ...props
 
 }) => {
   return (
@@ -62,7 +62,7 @@ const InputWithoutMask = ({
         onChangeText={onChange}
         placeholder={placeholder}
         maxLength={maxLength}
-        secureTextEntry={true}
+        {...props}
       />
     </View>
   );

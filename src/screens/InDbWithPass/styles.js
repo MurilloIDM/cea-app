@@ -33,12 +33,16 @@ const styles = StyleSheet.create({
     emailChecked:{
       fontFamily: "Montserrat-SemiBold",
       textAlign: "left",
-      margin: 24
+      marginTop: 24,
+      marginLeft: 24,
+      fontSize: 16,   
     },
 
     personalEmail: {
         fontSize: 18,
         marginTop: 10,
+        marginLeft: 24,
+        marginBottom: 24,
         fontFamily: "Montserrat-ExtraBold",
     },
     
@@ -58,31 +62,19 @@ const styles = StyleSheet.create({
     },
 
     container2 :{
+      position:"relative",
       width: "100%",
     },
 
-    inputArea: {
-
-    },
-
     icon: {
+      position:"absolute",
       width:'15%',
       height:50,
       justifyContent: 'center',
       alignItems: 'center',
+      top: 35,
+      right: 0,
     },
-
-  /*eyeo: {
-      //borderWidth: 1,
-     // borderColor:"red",
-      textAlign: "right",
-      position: "absolute",
-      top: 45,
-      right: 10,
-      display: "flex",
-      alignItems: "center",
-      color: "#000",
-    },*/
 
     buttonSubscribe: {
       borderColor: "red",
@@ -91,11 +83,11 @@ const styles = StyleSheet.create({
     },
 
     forgot: {
-        fontSize: 14,
-        fontFamily: "Montserrat-SemiBold",
-        textAlign: "right",
-        marginBottom: 10,
-        marginRight: 18,
+      fontSize: 14,
+      fontFamily: "Montserrat-SemiBold",
+      textAlign: "right",
+      marginBottom: 30,
+      marginRight: 18,
     },
 
   });

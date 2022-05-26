@@ -15,11 +15,11 @@ import styles from "./styles";
 
 const InDbWithPass = ({ navigation }) => {
 
-    const email = "cris@gmail.com";
+    const email = "pessoa@gmail.com";
     
     const [password, setPassword] = useState("");
     const [errorField, setErrorField] = useState(false);
-    const [hidePass, setHidePass] = useState(false);
+    const [hidePass, setHidePass] = useState(true);
 
     const handleChangePassword = (value) => setPassword(value);
 
@@ -36,22 +36,18 @@ const InDbWithPass = ({ navigation }) => {
         console.log(password);
         
         if (!success) {
-
-            clearFields();
-            setErrorField(message);
-            return;
+         clearFields();
+         setErrorField(message);
+         return;
         }
 
     };
 
     const forgotPassword = () => {
         navigation.navigate("Home", {}); //substituir Home por PassRecovery
-      }
-    
-        
+    }
+      
     return(
- //       <KeyboardAvoidingView behavior="height">
- //           <ScrollView>
             <View style={styles.container}>
                 <View>
                     <Image
@@ -62,15 +58,14 @@ const InDbWithPass = ({ navigation }) => {
                 </View>
 
                 <View>
-
                     <Text style={styles.description}>
                         Agora digite sua senha.
                     </Text>
                 </View>
 
                 <View>
-                    <View style={styles.emailChecked}>
-                        <Text>
+                    <View >
+                        <Text style={styles.emailChecked}>
                             E-mail 
                         </Text> 
                         
@@ -82,14 +77,10 @@ const InDbWithPass = ({ navigation }) => {
 
                 <View>
 
-                    <Text style={styles.labelPass}>
-                        Senha
-                    </Text>
-
                     <View style={styles.form}>
-                        <View >
-                            <View style={styles.bla}>
+                            <View style={styles.container2}>
                                 <Input
+                                    label={"Senha"}
                                     value={password}
                                     required={false}
                                     onChange={handleChangePassword}
@@ -98,22 +89,24 @@ const InDbWithPass = ({ navigation }) => {
                                     keybordType="default"
                                     placeholder={"Insira sua senha"}
                                     maxLength={8}
-                                    secureTextEntry={hidePass}// VERIFICAR COMO INSERIR                    
+                                    secureTextEntry={hidePass}  
+                                                   
                                 />
+                                
                                  {errorField && (
                                  <TagError description={errorField} />
                                 )}
 
                                 <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
+                                    
                                     {hidePass ?
-                                        <Ionicons name="eye" color="#000000" size={25}/>
-                                        :
                                         <Ionicons name="eye-off" color="#000000" size={25}/>
+                                        :
+                                        <Ionicons name="eye" color="#000000" size={25}/>
                                     }
                                 </TouchableOpacity>
                             </View>
 
-                        </View>
                             <View >
                                 <TouchableOpacity onPress={forgotPassword}>     
                                     <Text style={styles.forgot}>
@@ -133,8 +126,6 @@ const InDbWithPass = ({ navigation }) => {
                     </View> 
                 </View>
             </View>
-//            </ScrollView>   
-//        </KeyboardAvoidingView>
     );
 
 };
