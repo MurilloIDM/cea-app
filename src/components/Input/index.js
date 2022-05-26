@@ -46,6 +46,9 @@ const InputWithoutMask = ({
   onChange,
   required,
   placeholder,
+  maxLength,
+  ...props
+
 }) => {
   return (
     <View style={styles.container}>
@@ -58,6 +61,8 @@ const InputWithoutMask = ({
         style={styles.input}
         onChangeText={onChange}
         placeholder={placeholder}
+        maxLength={maxLength}
+        {...props}
       />
     </View>
   );
@@ -71,6 +76,6 @@ Input.defaultProps = {
   required: false,
   placeholder: "",
   type: "default",
-};
+  };
 
 export default Input;
