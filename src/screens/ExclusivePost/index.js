@@ -11,8 +11,8 @@ import MenuConfig from "../../components/MenuConfig";
 import styles from "./styles";
 
 
-const ExclusivePost = () => {
-  const [menuVisible, setMenuVisible] = useState(false)
+const ExclusivePost = ({ navigation }) => {
+  const [menuVisible, setMenuVisible] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,10 +31,13 @@ const ExclusivePost = () => {
         />
       </View>
 
-      <ExclusivePostListing />
+      <ExclusivePostListing
+        handlePressComments={(post) => navigation.navigate("Comments", { exclusivePost: post })}
+      />
 
       <MenuConfig
         visible={menuVisible}
+        handleLogOut={() => navigation.navigate('Home', {})}
         handleClose={() => setMenuVisible(false)}
       />
     </SafeAreaView>
