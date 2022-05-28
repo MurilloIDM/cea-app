@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     width: "92%",
-    fontSize: 24,
+    fontSize: 25,
     fontFamily: "Montserrat-ExtraBold",
     textAlign: "center"
   },

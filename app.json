@@ -1,6 +1,6 @@
 {
   "expo": {
-    "entryPoint": "./src/App.js",
+    "entryPoint": "./src/index.js",
     "name": "cea-app",
     "slug": "cea-app",
     "version": "1.0.0",
