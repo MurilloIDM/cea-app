@@ -7,7 +7,7 @@ import Survey from './components/Survey';
 
 import styles from "./styles";
 
-const ContentExclusivePost = ({ data }) => {
+const ContentExclusivePost = ({ data, handlePressComments }) => {
 
   const [post, setPost] = useState({});
   const [descriptionEllipsis, setDescriptionEllipsis] = useState(false);
@@ -77,7 +77,7 @@ const ContentExclusivePost = ({ data }) => {
       {
         post.type === 'SURVEY' &&
         <Survey
-          exclusivePostId={post.id} comm
+          exclusivePostId={post.id}
           studentId={null}
           topics={post.pollTopics}
         />
@@ -86,7 +86,7 @@ const ContentExclusivePost = ({ data }) => {
         post.type === 'TEXT' && post.totalComments > 0 &&
         <Pressable
           style={styles.commentContainer}
-          onPress={() => console.log('Chamar tela de comentários')}
+          onPress={() => handlePressComments(post)}
         >
           <AntDesign name="message1" size={40} color="black" />
           <Text style={styles.commentText}>{post.totalComments} Comentário{post.totalComments > 1 && 's'}</Text>

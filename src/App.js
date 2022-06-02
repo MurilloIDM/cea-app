@@ -11,6 +11,7 @@ import FreePost from "./screens/FreePost";
 import Login from "./screens/Login";
 import ExclusivePost from "./screens/ExclusivePost";
 import InDbWithPass from "./screens/InDbWithPass";
+import Comments from "./screens/Comments";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
@@ -61,6 +62,11 @@ const App = () => {
           <Screen
             name="ExclusiveContent"
             component={ExclusivePost}
+          />
+
+          <Screen
+            name="Comments"
+            component={Comments}
           />
 
         </Navigator>

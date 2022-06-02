@@ -1,5 +1,4 @@
-import { StyleSheet } from "react-native";
-import { Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const { width } = Dimensions.get('window');
 const widthAvatarBox = 56;
@@ -25,7 +24,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    borderRadius: 20
   },
   avatarTxt: {
     fontFamily: 'Montserrat-ExtraBold'
@@ -76,6 +76,9 @@ const styles = StyleSheet.create({
     width: width - widthAvatarBox * 2,
     fontFamily: 'Montserrat',
     paddingRight: 8,
+  },
+  replyButton: {
+    zIndex: 1
   }
 });
 

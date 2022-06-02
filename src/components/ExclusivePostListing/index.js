@@ -7,7 +7,7 @@ import ContentExclusivePost from './components/ContentExclusivePost';
 
 import Mock from "./Mock";
 
-const ExclusivePostListing = () => {
+const ExclusivePostListing = ({ handlePressComments }) => {
 
   const [posts, setPosts] = useState([]);
 
@@ -20,6 +20,7 @@ const ExclusivePostListing = () => {
       {posts && posts.map((post) => (
         <ContentExclusivePost
           data={post}
+          handlePressComments={handlePressComments}
           key={post.id}
         />
       ))}
