@@ -1,132 +1,164 @@
-import React, { useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView,ScrollView, TouchableOpacity} from 'react-native';
+import React, { useState, useEffect, useContext } from "react";
+import { Text, View, Image, TouchableOpacity, BackHandler } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 
+import { AuthContext } from "../../context/AuthProvider";
+
 import Input from "../../components/Input";
+import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 import TagError from "../../components/TagError";
-{/*import PassRecovery from "../PassRecovery";*/}
+import ModalLoader from "../../components/ModalLoader";
 
 import { validatePassword } from "../../utils/password";
 
 import logo from "../../../assets/images/logo.png";
 
+import { ERROR_GENERIC_TITLE } from "../../constants/ConstantsStudent";
+
 import styles from "./styles";
 
-const InDbWithPass = ({ navigation }) => {
+const InDbWithPass = ({ navigation, route }) => {
+  const { email } = route.params;
+  const { handleLogin, validateSession, loading, error, setError, messageError } = useContext(AuthContext);
 
-    const email = "pessoa@gmail.com";
-    
-    const [password, setPassword] = useState("");
-    const [errorField, setErrorField] = useState(false);
-    const [hidePass, setHidePass] = useState(true);
+  const [password, setPassword] = useState("");
+  const [hidePass, setHidePass] = useState(true);
+  const [errorField, setErrorField] = useState(false);
 
-    const handleChangePassword = (value) => setPassword(value);
+  const handleChangePassword = (value) => setPassword(value);
 
-    const clearFields = () => {
-        setPassword("");
-        setErrorField(false);
-    };
-    
-    const submitForm = async () => {
-        setErrorField(false);
+  const handleCloseModal = () => {
+    setError(false);
+    setHidePass(true);
+  }
 
-        const values = { password };
-        const { success, message } = validatePassword(values);
-        console.log(password);
-        
-        if (!success) {
-         clearFields();
-         setErrorField(message);
-         return;
-        }
+  const clearFields = () => {
+    setPassword("");
+    setErrorField(false);
+  };
 
-    };
+  const submitForm = async () => {
+    setErrorField(false);
 
-    const forgotPassword = () => {
-        navigation.navigate("Home", {}); //substituir Home por PassRecovery
+    const values = { password };
+    const { success, message } = validatePassword(values);
+
+    if (!success) {
+      clearFields();
+      setErrorField(message);
+      return;
     }
-      
-    return(
-            <View style={styles.container}>
-                <View>
-                    <Image
-                    resizeMode="contain"
-                    style={styles.logo}
-                    source={logo}
-                    />
-                </View>
 
-                <View>
-                    <Text style={styles.description}>
-                        Agora digite sua senha.
-                    </Text>
-                </View>
+    const payload = { email, password };
 
-                <View>
-                    <View >
-                        <Text style={styles.emailChecked}>
-                            E-mail 
-                        </Text> 
-                        
-                        <Text style={styles.personalEmail}>
-                            {email} 
-                        </Text>
-                    </View>
-                </View>
+    await handleLogin(payload);
+    await validateSession();
+  };
 
-                <View>
+  const forgotPassword = () => {
+    navigation.navigate("PassRecovery", {});
+  }
 
-                    <View style={styles.form}>
-                            <View style={styles.container2}>
-                                <Input
-                                    label={"Senha"}
-                                    value={password}
-                                    required={false}
-                                    onChange={handleChangePassword}
-                                    type="default"
-                                    blurOnSubmit={true}
-                                    keybordType="default"
-                                    placeholder={"Insira sua senha"}
-                                    maxLength={8}
-                                    secureTextEntry={hidePass}  
-                                                   
-                                />
-                                
-                                 {errorField && (
-                                 <TagError description={errorField} />
-                                )}
+  return (
+    <View style={styles.container}>
+      <View>
+        <Image
+          resizeMode="contain"
+          style={styles.logo}
+          source={logo}
+        />
+      </View>
 
-                                <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
-                                    
-                                    {hidePass ?
-                                        <Ionicons name="eye-off" color="#000000" size={25}/>
-                                        :
-                                        <Ionicons name="eye" color="#000000" size={25}/>
-                                    }
-                                </TouchableOpacity>
-                            </View>
+      <View>
+        <Text style={styles.description}>
+          Agora digite sua senha.
+        </Text>
+      </View>
 
-                            <View >
-                                <TouchableOpacity onPress={forgotPassword}>     
-                                    <Text style={styles.forgot}>
-                                        Esqueceu sua senha?
-                                    </Text>
-                                </TouchableOpacity>   
-                            </View>
-                        
-                       
+      <View>
+        <View>
+          <Text style={styles.emailChecked}>
+            E-mail
+          </Text>
 
-                        <Button
-                            text="Próximo"
-                            stylesText={styles.buttonSubscribe}
-                            handleOnPress={submitForm}
-                        />
-                    
-                    </View> 
-                </View>
-            </View>
-    );
+          <Text style={styles.personalEmail}>
+            {email}
+          </Text>
+        </View>
+      </View>
+
+      <View>
+
+        <View style={styles.form}>
+          <View style={styles.container2}>
+            <Input
+              label={"Senha"}
+              value={password}
+              required={false}
+              onChange={handleChangePassword}
+              type="default"
+              blurOnSubmit={true}
+              keybordType="default"
+              placeholder={"Insira sua senha"}
+              maxLength={18}
+              secureTextEntry={hidePass}
+
+            />
+
+            {errorField && (
+              <TagError description={errorField} />
+            )}
+
+            <TouchableOpacity style={styles.icon} onPress={() => setHidePass(!hidePass)}>
+
+              {hidePass ?
+                <Ionicons name="eye-off" color="#000000" size={25} />
+                :
+                <Ionicons name="eye" color="#000000" size={25} />
+              }
+            </TouchableOpacity>
+          </View>
+
+          <View>
+            <TouchableOpacity onPress={forgotPassword}>
+              <Text style={styles.forgot}>
+                Esqueceu sua senha?
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+
+          <Button
+            text="Próximo"
+            stylesText={styles.buttonSubscribe}
+            handleOnPress={submitForm}
+          />
+
+        </View>
+      </View>
+
+      {error && (
+        <Modal
+          visible={error}
+          title={ERROR_GENERIC_TITLE}
+          handleClose={handleCloseModal}
+        >
+          <Text style={styles.textMessage}>
+            {messageError}
+          </Text>
+
+          <Button
+            text="Fechar"
+            stylesText={styles.buttonClose}
+            handleOnPress={handleCloseModal}
+          />
+        </Modal>
+      )}
+
+      <ModalLoader visible={loading} />
+    </View>
+  );
 
 };
 

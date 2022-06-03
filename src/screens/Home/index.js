@@ -28,14 +28,16 @@ const Home = ({ navigation }) => {
     })
   };
 
-  useEffect(async () => {
-    getFacebookLink();
-    const deviceId = await SecureStore.getItemAsync("secure_deviceId");
-    
-    if (!deviceId) {
-      const uuid = uuidV4();
-      await SecureStore.setItemAsync("secure_deviceId", JSON.stringify(uuid));
-    }
+  useEffect(() => {
+    (async () => {
+      await getFacebookLink();
+      const deviceId = await SecureStore.getItemAsync("secure_deviceId");
+
+      if (!deviceId) {
+        const uuid = uuidV4();
+        await SecureStore.setItemAsync("secure_deviceId", JSON.stringify(uuid));
+      }
+    })();
   }, []);
 
   return (
@@ -81,7 +83,7 @@ const Home = ({ navigation }) => {
         />
 
         <Button
-          text="Conteúdo Gratuito"
+          text="Revista Eletrônica"
           stylesButton={styles.freeContent}
           stylesText={styles.freeContentText}
           stylesAnimated={styles.freeContentAnimated}

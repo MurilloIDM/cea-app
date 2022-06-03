@@ -5,8 +5,8 @@ import { Feather } from "@expo/vector-icons";
 
 import logoMain from "../../../assets/images/logoMain.png";
 
-import ExclusivePostListing from "../../components/ExclusivePostListing";
 import MenuConfig from "../../components/MenuConfig";
+import ExclusivePostListing from "../../components/ExclusivePostListing";
 
 import styles from "./styles";
 
@@ -19,9 +19,9 @@ const ExclusivePost = ({ navigation }) => {
 
       <View style={styles.header}>
         <Image
+          source={logoMain}
           resizeMode="contain"
           style={styles.logoMain}
-          source={logoMain}
         />
         <Feather
           name="menu"
@@ -37,7 +37,6 @@ const ExclusivePost = ({ navigation }) => {
 
       <MenuConfig
         visible={menuVisible}
-        handleLogOut={() => navigation.navigate('Home', {})}
         handleClose={() => setMenuVisible(false)}
       />
     </SafeAreaView>

@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as Font from "expo-font";
-import { registerRootComponent } from "expo";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./screens/Home";
-import FreePost from "./screens/FreePost";
 import Login from "./screens/Login";
-import ExclusivePost from "./screens/ExclusivePost";
-import InDbWithPass from "./screens/InDbWithPass";
+import FreePost from "./screens/FreePost";
 import Comments from "./screens/Comments";
+import InDbWithPass from "./screens/InDbWithPass";
+import ExclusivePost from "./screens/ExclusivePost";
+import RegisterPassword from "./screens/RegisterPassword";
+
+import { AuthContext } from "./context/AuthProvider";
 
 const Stack = createNativeStackNavigator();
 const { Navigator, Screen } = Stack;
 
 const App = () => {
+  const { authenticated, validateSession } = useContext(AuthContext);
+
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   const loadFonts = async () => {
@@ -31,7 +35,10 @@ const App = () => {
   }
 
   useEffect(() => {
-    loadFonts();
+    (async () => {
+      await loadFonts();
+      await validateSession()
+    })();
   }, []);
 
   return fontsLoaded && (
@@ -39,35 +46,46 @@ const App = () => {
       <NavigationContainer>
         <Navigator screenOptions={{ headerShown: false }}>
 
-          <Screen
-            name="Home"
-            component={Home}
-          />
+          {!authenticated ? (
+            <>
+              <Screen
+                name="Home"
+                component={Home}
+              />
 
-          <Screen
-            name="EmailLogin"
-            component={Login}
-          />
+              <Screen
+                name="EmailLogin"
+                component={Login}
+              />
 
-          <Screen
-            name="InDbWithPass"
-            component={InDbWithPass}
-          />
+              <Screen
+                name="InDbWithPass"
+                component={InDbWithPass}
+              />
 
-          <Screen
-            name="FreeContent"
-            component={FreePost}
-          />
+              <Screen
+                name="RegisterPassword"
+                component={RegisterPassword}
+              />
 
-          <Screen
-            name="ExclusiveContent"
-            component={ExclusivePost}
-          />
+              <Screen
+                name="FreeContent"
+                component={FreePost}
+              />
+            </>
+          ) : (
+            <>
+              <Screen
+                name="ExclusiveContent"
+                component={ExclusivePost}
+              />
 
-          <Screen
-            name="Comments"
-            component={Comments}
-          />
+              <Screen
+                name="Comments"
+                component={Comments}
+              />
+            </>
+          )}
 
         </Navigator>
       </NavigationContainer>
@@ -75,4 +93,4 @@ const App = () => {
   );
 }
 
-export default registerRootComponent(App);
+export default App;

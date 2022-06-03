@@ -116,12 +116,15 @@ const Login = ({ navigation }) => {
       await timeForCloseModalLoading();
 
       if (student && active && primaryAccess) {
-        // TODO: navegar para a tela de cadastro de senha
-        return;
+        return navigation.navigate("RegisterPassword", {
+          email,
+          token: null,
+          isEditPassword: false,
+        });
       }
 
       if (student && active) {
-        // TODO: navegar para a tela de login
+        return navigation.navigate("InDbWithPass", { email });
         return;
       }
 

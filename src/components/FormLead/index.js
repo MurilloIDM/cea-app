@@ -83,12 +83,12 @@ const FormLead = ({
 
           <View style={styles.modalApresentation}>
             <Text style={styles.modalTitle}>
-              {isNotStudent && "Opa! Parece que você ainda não é nosso aluno."}
+              {isNotStudent && "Opa! Parece que você ainda não é nosso aluno. "}
               Não perca tempo!
             </Text>
 
             <Text style={styles.description}>
-              Inscreva-se na lista de espera da Turma X do nosso curso
+              Inscreva-se na lista de espera da próxima turma do nosso curso
               imersivo completo sobre Adolescência!
             </Text>
           </View>
