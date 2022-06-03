@@ -3,9 +3,11 @@ import { AntDesign } from "@expo/vector-icons";
 
 import styles from "./styles";
 
-const TagError = ({ description }) => {
+const TagError = ({
+  description = 'Descrição do Erro',
+  stylesContainer = "" }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, stylesContainer]}>
       <AntDesign
         size={16}
         style={styles.icon}
