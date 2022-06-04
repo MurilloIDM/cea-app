@@ -8,10 +8,10 @@ export const validateOTP = (otp) => {
     };
   }
 
-  if (otp.length !== 4) {
+  if (otp.length !== 6) {
     return {
       success: false,
-      message: "O preenchimento do código está incompleto. Favor inserir os quatro dígitos.",
+      message: "O preenchimento do código está incompleto. Favor inserir os seis dígitos.",
     };
   }
 

@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 8,
     backgroundColor: 'white',
-    marginHorizontal: 8
+    marginHorizontal: 5
   },
   reSend: {
     alignSelf: 'baseline',
@@ -67,6 +67,18 @@ const styles = StyleSheet.create({
   },
   buttonSubmitText: {
     fontFamily: "Montserrat-Bold",
+  },
+  textMessage: {
+    width: "80%",
+    fontSize: 24,
+    marginTop: 40,
+    marginBottom: 70,
+    textAlign: "center",
+    alignSelf: "center",
+    fontFamily: "Montserrat"
+  },
+  buttonClose: {
+    fontFamily: "Montserrat-Bold"
   }
 });
 

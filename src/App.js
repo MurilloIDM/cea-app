@@ -65,16 +65,6 @@ const App = () => {
               />
 
               <Screen
-                name="RegisterPassword"
-                component={RegisterPassword}
-              />
-
-              <Screen
-                name="PassRecovery"
-                component={PassRecovery}
-              />
-
-              <Screen
                 name="FreeContent"
                 component={FreePost}
               />
@@ -92,6 +82,16 @@ const App = () => {
               />
             </>
           )}
+
+          <Screen
+            name="RegisterPassword"
+            component={RegisterPassword}
+          />
+
+          <Screen
+            name="PassRecovery"
+            component={PassRecovery}
+          />
 
         </Navigator>
       </NavigationContainer>

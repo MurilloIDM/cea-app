@@ -37,6 +37,7 @@ const ExclusivePost = ({ navigation }) => {
 
       <MenuConfig
         visible={menuVisible}
+        navigation={navigation}
         handleClose={() => setMenuVisible(false)}
       />
     </SafeAreaView>

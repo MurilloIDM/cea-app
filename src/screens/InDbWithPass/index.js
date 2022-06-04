@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Text, View, Image, TouchableOpacity, BackHandler } from 'react-native';
+import React, { useState, useContext } from "react";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { AuthContext } from "../../context/AuthProvider";
@@ -11,10 +11,9 @@ import TagError from "../../components/TagError";
 import ModalLoader from "../../components/ModalLoader";
 
 import { validatePassword } from "../../utils/password";
+import { ERROR_GENERIC_TITLE, ERROR_SEND_MAIL_FORGOT_PASSWORD } from "../../constants/ConstantsStudent";
 
 import logo from "../../../assets/images/logo.png";
-
-import { ERROR_GENERIC_TITLE } from "../../constants/ConstantsStudent";
 
 import styles from "./styles";
 
@@ -24,7 +23,7 @@ const InDbWithPass = ({ navigation, route }) => {
 
   const [password, setPassword] = useState("");
   const [hidePass, setHidePass] = useState(true);
-  const [errorField, setErrorField] = useState(false);
+  const [errorField, setErrorField] = useState("");
 
   const handleChangePassword = (value) => setPassword(value);
 
@@ -35,11 +34,11 @@ const InDbWithPass = ({ navigation, route }) => {
 
   const clearFields = () => {
     setPassword("");
-    setErrorField(false);
+    setErrorField("");
   };
 
   const submitForm = async () => {
-    setErrorField(false);
+    setErrorField("");
 
     const values = { password };
     const { success, message } = validatePassword(values);
@@ -57,7 +56,7 @@ const InDbWithPass = ({ navigation, route }) => {
   };
 
   const forgotPassword = () => {
-    navigation.navigate("PassRecovery", {});
+    navigation.navigate("PassRecovery", { email });
   }
 
   return (
@@ -106,7 +105,7 @@ const InDbWithPass = ({ navigation, route }) => {
 
             />
 
-            {errorField && (
+            {(errorField !== "") && (
               <TagError description={errorField} />
             )}
 
