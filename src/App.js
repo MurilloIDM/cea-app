@@ -12,6 +12,7 @@ import Comments from "./screens/Comments";
 import InDbWithPass from "./screens/InDbWithPass";
 import ExclusivePost from "./screens/ExclusivePost";
 import RegisterPassword from "./screens/RegisterPassword";
+import PassRecovery from "./screens/PassRecovery";
 
 import { AuthContext } from "./context/AuthProvider";
 
@@ -66,6 +67,11 @@ const App = () => {
               <Screen
                 name="RegisterPassword"
                 component={RegisterPassword}
+              />
+
+              <Screen
+                name="PassRecovery"
+                component={PassRecovery}
               />
 
               <Screen
