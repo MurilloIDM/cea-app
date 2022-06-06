@@ -11,9 +11,11 @@ import iconInstagram from "../../../assets/images/icon_instagram.png";
 import { AuthContext } from "../../context/AuthProvider";
 
 import styles from "./styles";
+import * as SecureStore from "expo-secure-store";
 
 const MenuConfig = ({
   visible,
+  navigation,
   handleClose,
 }) => {
   const { handleLogout } = useContext(AuthContext);
@@ -29,6 +31,13 @@ const MenuConfig = ({
       setFacebookUrl(result ? fbUrlApp : fbUrlWeb);
     })
   };
+
+  const resetPassword = async () => {
+    const jsonPersistent = await SecureStore.getItemAsync("user");
+    const { email } = JSON.parse(jsonPersistent);
+
+    navigation.navigate("PassRecovery", { email });
+  }
 
   useEffect(() => {
     (async () => await getFacebookLink())()
@@ -122,7 +131,7 @@ const MenuConfig = ({
 
                 <Pressable
                   style={styles.menuItem}
-                  onPress={() => console.log('Vai para troca de senha')}
+                  onPress={resetPassword}
                 >
                   <AntDesign name="lock1" size={32} color="#0b0b0b" />
                   <Text style={styles.label} >Trocar de senha</Text>

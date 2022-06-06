@@ -12,6 +12,14 @@ const SUCCESS_CREATE_UPDATE_PASSWORD_MESSAGE = "Você será redirecionado(a) par
 
 const ERROR_AUTH_LOGIN = "Seu email ou senha é inválido!";
 
+const ERROR_SEND_MAIL_FORGOT_PASSWORD = "Não foi possível enviar o e-mail para recuperação de senha. Tente novamente" +
+  " mais tarde!";
+
+const ERROR_VALIDATE_TOKEN_PASSWORD = "Ocorreu um erro na validação do token. Tente novamente mais tarde!";
+
+const SUCCESS_RESEND_TOKEN_TITLE = "Oba!";
+const SUCCESS_RESEND_TOKEN_MESSAGE = "Um novo token foi enviado para seu e-mail!";
+
 export {
   TOKEN_DURATION_HOUR,
   EXPIRED_ACCESS_TITLE,
@@ -21,4 +29,8 @@ export {
   SUCCESS_CREATE_UPDATE_PASSWORD_TITLE,
   SUCCESS_CREATE_UPDATE_PASSWORD_MESSAGE,
   ERROR_AUTH_LOGIN,
+  ERROR_SEND_MAIL_FORGOT_PASSWORD,
+  ERROR_VALIDATE_TOKEN_PASSWORD,
+  SUCCESS_RESEND_TOKEN_TITLE,
+  SUCCESS_RESEND_TOKEN_MESSAGE,
 };

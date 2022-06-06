@@ -23,7 +23,7 @@ export const createPassword = async (payload) => {
 
 export const updatePassword = async (payload) => {
   const config = {
-    method: "POST",
+    method: "PATCH",
     data: payload,
     url: "/students/password/update",
   };
@@ -41,4 +41,23 @@ export const authStudent = async (payload) => {
   const { data } = await instanceBasic.request(config);
 
   return data?.accessToken;
+}
+
+export const mailForgotPassword = async (email) => {
+  const config = {
+    method: "POST",
+    url: `/students/password/forgot?email=${email}`,
+  };
+
+  await instanceBasic.request(config);
+}
+
+export const validateTokenForResetPassword = async (payload) => {
+  const config = {
+    method: "POST",
+    data: payload,
+    url: "/students/password/reset/validate-token",
+  };
+
+  await instanceBasic.request(config);
 }

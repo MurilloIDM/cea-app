@@ -70,7 +70,7 @@ const RegisterPassword = ({ navigation, route }) => {
     clearFields(false);
   }
 
-  const handleCloseModalSuccess = () => {
+  const handleCloseModalSuccess = async () => {
     clearFields();
     setOpenModal(false);
     navigation.popToTop();
@@ -97,9 +97,14 @@ const RegisterPassword = ({ navigation, route }) => {
       const operation = isEditPassword ? updatePassword : createPassword;
       await operation(payload);
 
-      setTitleModal(SUCCESS_CREATE_UPDATE_PASSWORD_TITLE);
-      setMessageModal(SUCCESS_CREATE_UPDATE_PASSWORD_MESSAGE);
-      setOpenModal(true);
+      if (!isEditPassword) {
+        setTitleModal(SUCCESS_CREATE_UPDATE_PASSWORD_TITLE);
+        setMessageModal(SUCCESS_CREATE_UPDATE_PASSWORD_MESSAGE);
+        setOpenModal(true);
+      } else {
+        navigation.popToTop();
+      }
+
     } catch (e) {
       setError(true);
       setTitleModal(ERROR_GENERIC_TITLE);
