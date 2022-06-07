@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputContainer: {
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   input: {
     fontFamily: 'Montserrat',
@@ -64,27 +64,40 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   inputBadge: {
-    width: '98%',
+    width: '100%',
     alignSelf: "center",
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: '#BFB372',
     opacity: 0.5
   },
   inputBadgeStatus: {
-    backgroundColor: '#BFB372',
-    borderTopRightRadius: 5,
-    borderTopLeftRadius: 5,
     fontFamily: 'Montserrat',
     fontSize: 12,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   loader: {
-    borderWidth: 1,
-    position: "absolute",
     width,
     height,
+    position: "absolute",
     justifyContent: "center"
-  }
+  },
+  textMessageModal: {
+    width: "80%",
+    fontSize: 24,
+    marginTop: 40,
+    marginBottom: 70,
+    textAlign: "center",
+    alignSelf: "center",
+    fontFamily: "Montserrat"
+  },
+  buttonCloseModal: {
+    fontFamily: "Montserrat-Bold"
+  },
+  footerLoader: {
+    height: 40,
+  },
 });
 
 export default styles;

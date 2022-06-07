@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 8
   },
+  containerAction: {
+    flexDirection: "row",
+  },
   dateLine: {
     fontFamily: 'Montserrat',
     color: '#888',
@@ -78,7 +81,11 @@ const styles = StyleSheet.create({
     paddingRight: 8,
   },
   replyButton: {
-    zIndex: 1
+    zIndex: 1,
+  },
+  deleteButton: {
+    zIndex: 1,
+    marginLeft: 12
   }
 });
 

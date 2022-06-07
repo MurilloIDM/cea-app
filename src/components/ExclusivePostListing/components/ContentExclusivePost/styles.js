@@ -5,7 +5,7 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    width
+    position: 'relative'
   },
   titleContainer: {
     width: '100%',
@@ -49,6 +49,17 @@ const styles = StyleSheet.create({
   },
   seeMoreLessText: {
     fontFamily: 'Montserrat-Bold'
+  },
+  loaderVote: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    zIndex: 2
   }
 });
 

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     width,
     paddingHorizontal: 8,
     paddingBottom: 16,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   topicContainer: {
     width: '100%',
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     height: 54,
     borderRadius: 5,
     opacity: 0.2
-  }
+  },
 });
 
 export default styles;
