@@ -6,8 +6,9 @@ import Media from './components/Media';
 import Survey from './components/Survey';
 
 import styles from "./styles";
+import Loader from "../../../Loader";
 
-const ContentExclusivePost = ({ data, handlePressComments }) => {
+const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSurvey }) => {
 
   const [post, setPost] = useState({});
   const [descriptionEllipsis, setDescriptionEllipsis] = useState(false);
@@ -21,7 +22,7 @@ const ContentExclusivePost = ({ data, handlePressComments }) => {
     data.media.length === 0 && setDescriptionLengthInitialValue(initialLength)
     setDescriptionLength(initialLength);
     setDescriptionEllipsis(data.description.length > initialLength ? true : false);
-  }, [])
+  }, [data]);
 
   const handleSeeMore = () => {
     setDescriptionLength(Number.MAX_SAFE_INTEGER);
@@ -35,8 +36,6 @@ const ContentExclusivePost = ({ data, handlePressComments }) => {
     setSeeMoreClicked(false);
   }
 
-
-
   return (
     <View style={styles.container}>
       {post && <View style={styles.titleContainer}>
@@ -47,10 +46,10 @@ const ContentExclusivePost = ({ data, handlePressComments }) => {
         <Text style={styles.title}>{post.title}</Text>
       </View>}
 
-      {post.type === 'TEXT' &&
-        <Media
-          data={post.media}
-        />}
+      {post.type === 'TEXT' && (
+        <Media data={post.media} />
+      )}
+
       <View style={styles.descriptionContainer}>
         <Text
           style={styles.description}
@@ -74,26 +73,34 @@ const ContentExclusivePost = ({ data, handlePressComments }) => {
           }
         </Text>
       </View>
-      {
-        post.type === 'SURVEY' &&
-        <Survey
-          exclusivePostId={post.id}
-          studentId={null}
-          topics={post.pollTopics}
-        />
-      }
-      {
-        post.type === 'TEXT' && post.totalComments > 0 &&
+
+      {post.type === 'SURVEY' && (
+        <>
+          <Survey
+            studentId={null}
+            handleVote={handleVote}
+            topics={post.pollTopics}
+            exclusivePostId={post.id}
+          />
+
+          {(loadingSurvey?.id === post?.id && loadingSurvey) && (
+            <View style={styles.loaderVote}>
+              <Loader disabled={false} size={32} />
+            </View>
+          )}
+        </>
+      )}
+
+      {post.type === 'TEXT' && (
         <Pressable
           style={styles.commentContainer}
           onPress={() => handlePressComments(post)}
         >
-          <AntDesign name="message1" size={40} color="black" />
-          <Text style={styles.commentText}>{post.totalComments} Comentário{post.totalComments > 1 && 's'}</Text>
+          <AntDesign name="message1" size={24} color="black" />
+          <Text style={styles.commentText}>Comentários</Text>
         </Pressable>
-      }
-
-    </View >
+      )}
+    </View>
   );
 }
 

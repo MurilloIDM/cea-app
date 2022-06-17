@@ -46,9 +46,10 @@ const AuthProvider = ({ children }) => {
       setError(false);
       setLoading(true);
 
-      const accessToken = await authStudent(payload);
+      const { accessToken, studentId } = await authStudent(payload);
 
       const persistData = {
+        studentId,
         token: accessToken,
         email: payload?.email,
         expiresAt: moment().add(TOKEN_DURATION_HOUR, "hours"),

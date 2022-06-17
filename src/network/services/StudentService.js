@@ -40,7 +40,7 @@ export const authStudent = async (payload) => {
 
   const { data } = await instanceBasic.request(config);
 
-  return data?.accessToken;
+  return data;
 }
 
 export const mailForgotPassword = async (email) => {
