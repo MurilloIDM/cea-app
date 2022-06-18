@@ -119,7 +119,7 @@ const InDbWithPass = ({ navigation, route }) => {
             </TouchableOpacity>
           </View>
 
-          <View>
+          <View style={styles.containerForgot}>
             <TouchableOpacity onPress={forgotPassword}>
               <Text style={styles.forgot}>
                 Esqueceu sua senha?

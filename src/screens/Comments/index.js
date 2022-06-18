@@ -265,7 +265,7 @@ const Comments = ({ navigation, route }) => {
           stylesContainer={styles.loader}
         />
       ) : (
-        <KeyboardAvoidingView style={styles.commentView} behavior="height" enabled keyboardVerticalOffset={0}>
+        <KeyboardAvoidingView style={styles.commentView} enabled>
           <FlatList
             data={comments}
             renderItem={renderComment}

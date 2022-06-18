@@ -76,7 +76,9 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-SemiBold",
     textAlign: "right",
     marginBottom: 30,
-    marginRight: 18,
+  },
+  containerForgot: {
+    alignSelf: "flex-end"
   },
   textMessage: {
     width: "80%",
