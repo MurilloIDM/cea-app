@@ -1,7 +1,7 @@
 
 
-<h1 align="center"> App CEA 
-Comunidade Entendendo a Adolescência </h1>
+<h1 align="center"> App 
+Comunidade Entendendo a Adolescência (CEA) </h1>
 
 > :construction: Projeto em construção :construction:
 
@@ -23,9 +23,9 @@ Uma aplicação para dispositivos móveis, que tem como principais objetivos:
 ## :file_folder: Acesso
 
 O projeto está dividido entre três repositórios:
-- :floppy_disk: [Back-End](https://github.com/MurilloIDM/cea-back-end) 
+- :floppy_disk: [Back-End](https://github.com/MurilloIDM/cea-back-end) - aplicação das regras de negócios e persistência dos dados
 - :computer: [Front-End](https://github.com/MurilloIDM/cea-front-end) - sistema web de gerenciamento do conteúdo do App
-- :iphone: [Mobile](https://github.com/MurilloIDM/cea-app)
+- :iphone: [Mobile](https://github.com/MurilloIDM/cea-app) - aplicativo para interação da comunidade Entendendo a Adolescência
 
 
 
@@ -46,16 +46,16 @@ utilizando a url gerada na execução do projeto, ou utilize a câmera do dispos
 
 ## Ferramentas e tecnologias utilizadas
 
-:heavy_check_mark: Java
-:heavy_check_mark: STS4
-:heavy_check_mark: Spring Boot
-:heavy_check_mark: PostgreSql
-:heavy_check_mark: ReactJs
-:heavy_check_mark: VSCode
-:heavy_check_mark: Ant Design
-:heavy_check_mark: React Native
-:heavy_check_mark: Yarn
-:heavy_check_mark: Expo
+<p> :heavy_check_mark: Java </p>
+<p> :heavy_check_mark: STS4 </p>
+<p> :heavy_check_mark: Spring Boot </p>
+<p> :heavy_check_mark: PostgreSql </p>
+<p> :heavy_check_mark: ReactJs </p>
+<p> :heavy_check_mark: VSCode </p>
+<p> :heavy_check_mark: Ant Design </p>
+<p> :heavy_check_mark: React Native </p>
+<p> :heavy_check_mark: Yarn </p>
+<p> :heavy_check_mark: Expo </p>
 
 
 ## Autores
