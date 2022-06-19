@@ -7,7 +7,7 @@ Comunidade Entendendo a Adolescência </h1>
 
 ## :scroll: Descrição
 
-Uma aplicação para dispositivos móveis que tem como principais objetivos:
+Uma aplicação para dispositivos móveis, que tem como principais objetivos:
 - fornecer conteúdo gratuito a qualquer pessoa que se interesse pelo assunto de educação para adolescentes, com possibilidade destes tornarem-se leads;
 - seção exclusiva para alunos do curso que a empresa Entendendo a Adolescência oferece ( enquetes, vídeos e textos), com possibilidade de interação através de postagem de comentários dos usuários.
 
