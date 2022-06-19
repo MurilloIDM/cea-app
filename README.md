@@ -8,7 +8,7 @@ Comunidade Entendendo a Adolescência </h1>
 ## :scroll: Descrição
 
 Uma aplicação para dispositivos móveis, que tem como principais objetivos:
-- fornecer conteúdo gratuito a qualquer pessoa que se interesse pelo assunto de educação para adolescentes, com possibilidade destes tornarem-se leads;
+- fornecer conteúdo gratuito a qualquer pessoa que se interesse pelo assunto de educação para adolescentes, com possibilidade destes tornarem-se *leads*;
 - seção exclusiva para alunos do curso que a empresa Entendendo a Adolescência oferece ( enquetes, vídeos e textos), com possibilidade de interação através de postagem de comentários dos usuários.
 
 ## :hammer: Funcionalidades
@@ -32,7 +32,7 @@ O projeto está dividido entre três repositórios:
 ## :wrench: Abrir e rodar
 
 Para executar o App, você deve clonar seu repositório. 
-Abra o projeto utilizando uma IDE para Javascript (VSCode por exemplo), e execute os seguintes comandos no terminal:
+Abra o projeto utilizando uma IDE para JavaScript (VSCode por exemplo), e execute os seguintes comandos no terminal:
 
 ```
 yarn install
