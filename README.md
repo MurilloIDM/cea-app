@@ -16,7 +16,7 @@ Uma aplicação para dispositivos móveis, que tem como principais objetivos:
 - `Revista eletrônica`: conteúdo gratuito relacionado à educação de adolescentes (somente leitura)
 - `Obtenção de leads`: obter dados de interessados em futuros cursos da empresa
 - `Comunidade`: conteúdo exclusivo a alunos dos cursos já oferecidos, com criação de senha no primeiro acesso
-- `Enquetes`: aluno pode votar em 
+- `Enquetes`: aluno pode votar em enquetes disponibilizadas pela empresa
 - `Fale conosco`: seção para envio de email a empresa
 - `Troca de senha`: possibilita troca de senha caso o aluno necessite
 
