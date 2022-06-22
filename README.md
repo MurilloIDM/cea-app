@@ -3,6 +3,8 @@
 <h1 align="center"> App 
 Comunidade Entendendo a Adolescência (CEA) </h1>
 
+*<p style= "text-align: right"><a href="https://github.com/MurilloIDM/cea-app/blob/main/README-en.md">English</a></p>*
+
 > :construction: Projeto em construção :construction:
 
 ## :scroll: Descrição
@@ -44,7 +46,7 @@ yarn start
 Utilizamos o Expo como ferramenta para facilitar o acesso as APIs nativas do dispositivo. Com o Expo Go instalado em seu smartphone, faça a conexão 
 utilizando a url gerada na execução do projeto, ou utilize a câmera do dispositivo, apontando ao QR Code gerado.
 
-## Ferramentas e tecnologias utilizadas
+## :nut_and_bolt: Ferramentas e tecnologias utilizadas
 
 <p> :heavy_check_mark: Java </p>
 <p> :heavy_check_mark: STS4 </p>
@@ -58,7 +60,7 @@ utilizando a url gerada na execução do projeto, ou utilize a câmera do dispos
 <p> :heavy_check_mark: Expo </p>
 
 
-## Autores
+## :sunglasses: Autores
 | [<img src="https://avatars.githubusercontent.com/u/64175466?v=4" width=115><br><sub>Cristina Kochmann</sub>](https://github.com/CrisKoch) |  [<img src="https://avatars.githubusercontent.com/u/64824185?v=4" width=115><br><sub>Gustavo Santos</sub>](https://github.com/Gustavo780904) |  [<img src="https://avatars.githubusercontent.com/u/44484530?v=4" width=115><br><sub>Murilo Medeiros</sub>](https://github.com/MurilloIDM) |  [<img src="https://avatars.githubusercontent.com/u/64798940?v=4" width=115><br><sub>Tulio Cesar Gontijo</sub>](https://github.com/tcgontijo)
 | :---: | :---: | :---: | :---: |
 
