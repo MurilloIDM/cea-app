@@ -35,10 +35,7 @@ const PassRecovery = ({ navigation, route }) => {
   const [messageError, setMessageError] = useState("");
   const [messageSuccess, setMessageSuccess] = useState("");
   const [errorFieldMessage, setErrorFieldMessage] = useState("");
-
-  useEffect(() => {
-    (async () => await handleReSendOtp())();
-  }, []);
+  const [modalConfirmation, setModalConfirmation] = useState(true);
 
   const handleChangeCode = (value) => setCode(value);
 
@@ -49,9 +46,15 @@ const PassRecovery = ({ navigation, route }) => {
     otpRef.current.clear();
   }
 
+  const toBackScreen = () => {
+    setModalConfirmation(false);
+    navigation.goBack();
+  }
+
   const handleReSendOtp = async () => {
     Keyboard.dismiss();
 
+    setModalConfirmation(false);
     setLoading(true);
     try {
       await mailForgotPassword(email);
@@ -198,6 +201,29 @@ const PassRecovery = ({ navigation, route }) => {
           text="Ok"
           stylesText={styles.buttonClose}
           handleOnPress={() => setSuccess(false)}
+        />
+      </Modal>
+
+      <Modal
+        visible={modalConfirmation}
+        title="Enviar e-mail de recuperação"
+        handleClose={toBackScreen}
+      >
+        <Text style={styles.textMessage}>
+          Para enviar o e-mail, clique em "enviar." Se desejar cancelar a operação, clique em "cancelar".
+        </Text>
+
+        <Button
+          text="Cancelar"
+          handleOnPress={toBackScreen}
+          stylesButton={styles.buttonCancel}
+          stylesText={styles.buttonCancelText}
+        />
+
+        <Button
+          text="Enviar"
+          stylesText={styles.buttonClose}
+          handleOnPress={handleReSendOtp}
         />
       </Modal>
 

@@ -77,8 +77,19 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontFamily: "Montserrat"
   },
+  buttonCancelText: {
+    color: "#0b0b0b",
+    fontFamily: "Montserrat-Bold",
+  },
+  buttonCancel: {
+    marginBottom: 16,
+    borderWidth: 1,
+    color: "#0b0b0b",
+    borderColor: "#0b0b0b",
+    backgroundColor: "#fff",
+  },
   buttonClose: {
-    fontFamily: "Montserrat-Bold"
+    fontFamily: "Montserrat-Bold",
   }
 });
 
