@@ -47,7 +47,7 @@ yarn start
 
 We use Expo as a tool to facilitate access to the device’s native APIs. With Expo Go installed in your smartphone, connect to it using the url generated in the project execution, or use device camera pointing to QR Code generated.
 
-## Tools and technologies used
+## :nut_and_bolt: Tools and technologies used
 
 <p> :heavy_check_mark: Java </p>
 <p> :heavy_check_mark: STS4 </p>
@@ -60,6 +60,6 @@ We use Expo as a tool to facilitate access to the device’s native APIs. With E
 <p> :heavy_check_mark: Yarn </p>
 <p> :heavy_check_mark: Expo </p>
 
-## Authors
+## :sunglasses: Authors
 | [<img src="https://avatars.githubusercontent.com/u/64175466?v=4" width=115><br><sub>Cristina Kochmann</sub>](https://github.com/CrisKoch) |  [<img src="https://avatars.githubusercontent.com/u/64824185?v=4" width=115><br><sub>Gustavo Santos</sub>](https://github.com/Gustavo780904) |  [<img src="https://avatars.githubusercontent.com/u/44484530?v=4" width=115><br><sub>Murilo Medeiros</sub>](https://github.com/MurilloIDM) |  [<img src="https://avatars.githubusercontent.com/u/64798940?v=4" width=115><br><sub>Tulio Cesar Gontijo</sub>](https://github.com/tcgontijo)
 | :---: | :---: | :---: | :---: |
