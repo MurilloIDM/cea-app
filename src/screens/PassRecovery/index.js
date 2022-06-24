@@ -10,6 +10,7 @@ import ModalLoader from "../../components/ModalLoader";
 import { validateOTP, hideEmail } from "../../utils/passRecovery";
 import {
   ERROR_GENERIC_TITLE,
+  ERROR_LIMIT_EMAIL,
   ERROR_SEND_MAIL_FORGOT_PASSWORD,
   ERROR_VALIDATE_TOKEN_PASSWORD,
   SUCCESS_RESEND_TOKEN_MESSAGE,
@@ -62,6 +63,15 @@ const PassRecovery = ({ navigation, route }) => {
       setMessageSuccess(SUCCESS_RESEND_TOKEN_MESSAGE);
       setSuccess(true);
     } catch (e) {
+      const statusCode = e?.response?.data?.status;
+      const messageError = e?.response?.data?.message;
+
+      if (statusCode === 400 && messageError === ERROR_LIMIT_EMAIL) {
+        setMessageError(ERROR_LIMIT_EMAIL);
+        setError(true);
+        return;
+      }
+
       setMessageError(ERROR_SEND_MAIL_FORGOT_PASSWORD);
       setError(true);
     } finally {
@@ -210,7 +220,7 @@ const PassRecovery = ({ navigation, route }) => {
         handleClose={toBackScreen}
       >
         <Text style={styles.textMessage}>
-          Para enviar o e-mail, clique em "enviar." Se desejar cancelar a operação, clique em "cancelar".
+          Para enviar o e-mail, clique em "enviar". Se desejar cancelar a operação, clique em "cancelar".
         </Text>
 
         <Button

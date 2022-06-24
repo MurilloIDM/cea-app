@@ -47,10 +47,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 5
   },
   reSend: {
-    alignSelf: 'baseline',
+    alignSelf: "flex-end",
     marginTop: 8,
     marginBottom: 32,
-    width: width - paddingHorizontalContainer * 2,
     zIndex: 1
   },
   reSendText: {

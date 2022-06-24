@@ -20,6 +20,9 @@ const ERROR_VALIDATE_TOKEN_PASSWORD = "Ocorreu um erro na validação do token. 
 const SUCCESS_RESEND_TOKEN_TITLE = "Oba!";
 const SUCCESS_RESEND_TOKEN_MESSAGE = "Um novo token foi enviado para seu e-mail!";
 
+const ERROR_LIMIT_EMAIL = "Nos últimos minutos foram realizados 3 envios de tokens de recuperação! Aguarde 5 " +
+  "minutos para solicitar um novo token."
+
 export {
   TOKEN_DURATION_HOUR,
   EXPIRED_ACCESS_TITLE,
@@ -33,4 +36,5 @@ export {
   ERROR_VALIDATE_TOKEN_PASSWORD,
   SUCCESS_RESEND_TOKEN_TITLE,
   SUCCESS_RESEND_TOKEN_MESSAGE,
+  ERROR_LIMIT_EMAIL,
 };
