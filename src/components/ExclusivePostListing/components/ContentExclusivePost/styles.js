@@ -12,13 +12,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 4,
-    paddingVertical: 8
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
   title: {
+    maxWidth: "100%",
     fontFamily: 'Montserrat-Bold',
     fontSize: 18,
-    marginLeft: 8
+    marginLeft: 8,
+    flex: 1,
+    flexWrap: "wrap"
   },
   descriptionContainer: {
     backgroundColor: 'white',

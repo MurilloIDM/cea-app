@@ -40,8 +40,8 @@ const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSu
     <View style={styles.container}>
       {post && <View style={styles.titleContainer}>
         {post.type === 'SURVEY' ?
-          <AntDesign name="bars" size={32} color="black" /> :
-          <AntDesign name="paperclip" size={32} color="black" />
+          <AntDesign name="bars" size={24} color="black" /> :
+          <AntDesign name="paperclip" size={24} color="black" />
         }
         <Text style={styles.title}>{post.title}</Text>
       </View>}
