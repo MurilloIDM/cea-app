@@ -41,18 +41,21 @@ const Card = ({ data }) => {
           <Text style={styles.date}>{dateFormatting}</Text>
         </View>
 
-        <Pressable
-          onPress={handleExpand}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>{textButton}</Text>
+        {(data?.description?.length > 290) && (
+          <Pressable
+            onPress={handleExpand}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>{textButton}</Text>
 
-          <AntDesign
-            size={22}
-            name={iconNameButton}
-            style={styles.buttonIcon}
-          />
-        </Pressable>
+            <AntDesign
+              size={22}
+              name={iconNameButton}
+              style={styles.buttonIcon}
+            />
+          </Pressable>
+        )}
+
       </View>
     </View>
   );

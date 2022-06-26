@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   },
   topicContainer: {
     width: '100%',
+    height: 54,
     marginVertical: 8,
     paddingVertical: 16,
     borderRadius: 8
@@ -42,8 +43,9 @@ const styles = StyleSheet.create({
   percentBar: {
     position: "absolute",
     backgroundColor: 'black',
-    height: 54,
     borderRadius: 5,
+    top: 0,
+    bottom: 0,
     opacity: 0.2
   },
 });

@@ -77,17 +77,19 @@ const ExclusivePostListing = ({ setErrorGeneric, handleAccessExpired, handlePres
       const pageSelected = latestPosts ? 1 : page;
       const response = await findExclusivePost(pageSelected - 1, studentId);
 
-      if (!latestPosts) {
-        const totalPages = response.totalPages;
-        const totalElements = response?.totalElements;
+      const totalPages = response.totalPages;
+      const totalElements = response?.totalElements;
 
-        const updateValuePage = totalElements < (page * 10)
-          ? page : totalPages > page ? page + 1 : page;
+      const updateValuePage = totalElements < (pageSelected * 10)
+        ? pageSelected : totalPages > pageSelected ? pageSelected + 1 : pageSelected;
 
-        setPage(updateValuePage);
-      }
+      setPage(updateValuePage);
 
-      const uniqPosts = _uniqBy(response?.content, posts, "id");
+      if (posts.length === response?.totalElements && !latestPosts) return null;
+
+      const savedPosts = latestPosts ? [] : posts;
+
+      const uniqPosts = _uniqBy(response?.content, savedPosts, "id");
       const orderPosts = _orderBy(uniqPosts, ["createdAt"], ["desc"]);
 
       setPosts(orderPosts);
