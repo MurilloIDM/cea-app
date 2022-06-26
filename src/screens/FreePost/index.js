@@ -140,7 +140,7 @@ const FreePost = ({ navigation }) => {
         showsHorizontalScrollIndicator={false}
       >
         <TitlePage
-          text="Conteúdo Gratuito"
+          text="Revista Eletrônica"
           styleTitle={styles.titlePage}
         />
 

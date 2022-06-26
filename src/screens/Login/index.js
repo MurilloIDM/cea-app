@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView } from "react-native";
+import { Text, View, Image, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from "react-native";
 
 import Modal from "../../components/Modal";
 import Input from "../../components/Input";
@@ -125,7 +125,6 @@ const Login = ({ navigation }) => {
 
       if (student && active) {
         return navigation.navigate("InDbWithPass", { email });
-        return;
       }
 
       if (student && !active) {
@@ -153,80 +152,81 @@ const Login = ({ navigation }) => {
   }
 
   return (
-    <KeyboardAvoidingView behavior="height">
-      <View style={styles.container}>
-        <View>
-          <Image
-            resizeMode="contain"
-            style={styles.logo}
-            source={logo}
-          />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardAvoidingView>
+        <View style={styles.container}>
+          <View>
+            <Image
+              resizeMode="contain"
+              style={styles.logo}
+              source={logo}
+            />
+          </View>
+
+          <View>
+            <Text style={styles.title}>
+              Seja bem vindo à nossa comunidade!
+            </Text>
+
+            <Text style={styles.description}>
+              Digite seu e-mail para começar.
+            </Text>
+          </View>
+
+          <View style={styles.form}>
+            <Input
+              value={email}
+              required={false}
+              onChange={handleChangeEmail}
+              type="email-address"
+              placeholder="pessoa@gmail.com"
+            />
+
+            {errorField && (
+              <TagError description={errorFieldMessage} />
+            )}
+
+            <Button
+              text="Próximo"
+              stylesText={styles.buttonSubscribe}
+              handleOnPress={submitForm}
+            />
+          </View>
         </View>
 
-        <View>
-          <Text style={styles.title}>
-            Seja bem vindo à nossa comunidade!
+        <LoaderLogin
+          visible={openModalLoading}
+        />
+
+        <ModalLoader
+          visible={modalLoader}
+          handleClose={() => setModalLoader(false)}
+        />
+
+        <Modal
+          visible={openModalMessage}
+          handleClose={handleOpenModalMessage}
+          title={titleModal}
+        >
+          <Text style={styles.textMessage}>
+            {messageModal}
           </Text>
-
-          <Text style={styles.description}>
-            Digite seu e-mail para começar.
-          </Text>
-        </View>
-
-        <View style={styles.form}>
-          <Input
-            value={email}
-            required={false}
-            onChange={handleChangeEmail}
-            type="email-address"
-            placeholder="pessoa@gmail.com"
-
-          />
-
-          {errorField && (
-            <TagError description={errorFieldMessage} />
-          )}
 
           <Button
-            text="Próximo"
-            stylesText={styles.buttonSubscribe}
-            handleOnPress={submitForm}
+            text="Ok"
+            stylesText={styles.buttonClose}
+            handleOnPress={handleOpenModalMessage}
           />
-        </View>
-      </View>
+        </Modal>
 
-      <LoaderLogin
-        visible={openModalLoading}
-      />
-
-      <ModalLoader
-        visible={modalLoader}
-        handleClose={() => setModalLoader(false)}
-      />
-
-      <Modal
-        visible={openModalMessage}
-        handleClose={handleOpenModalMessage}
-        title={titleModal}
-      >
-        <Text style={styles.textMessage}>
-          {messageModal}
-        </Text>
-
-        <Button
-          text="Ok"
-          stylesText={styles.buttonClose}
-          handleOnPress={handleOpenModalMessage}
+        <FormLead
+          isNotStudent={true}
+          submit={handleSaveLead}
+          visible={openModalRegisterLead}
+          handleClose={() => setOpenModalRegisterLead(false)}
         />
-      </Modal>
-
-      <FormLead
-        isNotStudent={true}
-        submit={handleSaveLead}
-        visible={openModalRegisterLead}
-        handleClose={() => setOpenModalRegisterLead(false)}
-      />
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 
