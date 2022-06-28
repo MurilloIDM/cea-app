@@ -285,7 +285,7 @@ const Comments = ({ navigation, route }) => {
           <View style={styles.inputContainer}>
             {inputFocused && (
               <View style={styles.inputBadge}>
-                <Text style={styles.inputBadgeStatus}>
+                <Text style={styles.inputTextStatus}>
                   {
                     isReplying ?
                       `Respondendo comentário de ${replyingTo.socialName ? replyingTo.socialName : replyingTo.authorName}`
