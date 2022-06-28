@@ -26,7 +26,8 @@ export const hideEmail = (email) => {
 
   const part2 = g[1].substring(g[1].length / 2, g[1].length);
 
-  const result = g[0].replace(part1, part1.replace(/./g, '*')).concat('@', g[1].replace(part2, part2.replace(/./g, '*')))
+  const result = g[0].replace(part1, part1.replace(/./g, '*')).concat('@', g[1]
+    .replace(part2, part2.replace(/./g, '*')));
 
   return result;
 

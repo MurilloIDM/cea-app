@@ -70,12 +70,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: '#BFB372',
-    opacity: 0.5
+    opacity: 0.5,
+    paddingHorizontal: 12,
   },
   inputBadgeStatus: {
-    fontFamily: 'Montserrat',
     fontSize: 12,
-    paddingHorizontal: 8,
+    fontFamily: 'Montserrat',
+  },
+  inputTextStatus: {
+    fontSize: 12,
+    flex: 1,
+    flexWrap: "wrap",
+    fontFamily: 'Montserrat',
   },
   loader: {
     width,

@@ -82,7 +82,7 @@ const InDbWithPass = ({ navigation, route }) => {
               E-mail
             </Text>
 
-            <Text style={styles.personalEmail}>
+            <Text numberOfLines={1} style={styles.personalEmail}>
               {email}
             </Text>
           </View>
