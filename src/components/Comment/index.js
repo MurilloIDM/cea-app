@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import moment from "moment";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { View, Text, Pressable, FlatList } from "react-native";
+import { View, Text, Pressable, FlatList, Image } from "react-native";
+
+import Logo from "../../../assets/images/logo.png";
 
 import _uniqBy from "lodash/unionBy";
 import _orderBy from "lodash/orderBy";
@@ -88,14 +90,23 @@ const Comment = ({ data, studentId, handleReply, deleteCommentOrReply, validateA
     return (
       <View style={styles.containerReply}>
         <View style={styles.avatar}>
+
           <LinearGradient
             colors={["rgba(191, 179, 114, 0.8)", "rgb(191, 179, 114)"]}
             style={styles.avatarImgBkg}
           >
-            <Text style={styles.avatarTxt}>
-              {adjustedReply.avatarTitle}
-            </Text>
+            {adjustedReply.admin ?
+              <Image
+                source={Logo}
+                style={styles.avatarImgBkg}
+              />
+              :
+              <Text style={styles.avatarTxt}>
+                {adjustedReply.avatarTitle}
+              </Text>
+            }
           </LinearGradient>
+
         </View>
         <View style={styles.replyBox}>
           <Text style={styles.commentText}>
