@@ -98,7 +98,7 @@ const Comment = ({ data, studentId, handleReply, deleteCommentOrReply, validateA
             {adjustedReply.admin ?
               <Image
                 source={Logo}
-                style={styles.avatarImgBkg}
+                style={styles.avatarImgAdmin}
               />
               :
               <Text style={styles.avatarTxt}>

@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20
   },
+  avatarImgAdmin: {
+    width: 42,
+    height: 42,
+  },
   avatarTxt: {
     fontFamily: 'Montserrat-ExtraBold'
   },
