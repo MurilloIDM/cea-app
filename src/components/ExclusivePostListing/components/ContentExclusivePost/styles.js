@@ -45,10 +45,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  containerLinks: {
+    borderTopWidth: 1,
+    borderTopColor: '#DDD',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 8,
+    paddingTop: 8,
+    paddingBottom: 8,
+    flexDirection: 'row'
+  },
   commentText: {
     marginLeft: 8,
     fontFamily: 'Montserrat-Bold',
     fontSize: 14
+  },
+  titleLinks: {
+    marginLeft: 8,
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 14
+  },
+  linkLabel: {
+    fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
+    color: '#0B0B0B',
+    textDecorationLine: 'underline'
   },
   seeMoreLessText: {
     fontFamily: 'Montserrat-Bold'
@@ -63,6 +84,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     zIndex: 2
+  },
+  listLinks: {
+    marginTop: 24,
+    overflow: 'scroll',
+    maxHeight: 258,
   }
 });
 
