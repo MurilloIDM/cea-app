@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, FlatList, Linking } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 
-import Media from './components/Media';
-import Survey from './components/Survey';
+import Modal from "../../../Modal";
+import Media from "./components/Media";
+import Survey from "./components/Survey";
+
 
 import styles from "./styles";
 import Loader from "../../../Loader";
+import { isEmpty } from "lodash";
 
 const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSurvey }) => {
 
@@ -14,6 +17,7 @@ const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSu
   const [descriptionEllipsis, setDescriptionEllipsis] = useState(false);
   const [descriptionLength, setDescriptionLength] = useState(0);
   const [seeMoreClicked, setSeeMoreClicked] = useState(false);
+  const [openModalLinks, setOpenModalLinks] = useState(false);
   const [descriptionLengthInitialValue, setDescriptionLengthInitialValue] = useState(200);
 
   useEffect(() => {
@@ -34,6 +38,17 @@ const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSu
     setDescriptionLength(descriptionLengthInitialValue);
     setDescriptionEllipsis(true);
     setSeeMoreClicked(false);
+  }
+
+  function renderLink({ item }) {
+    return (
+      <Text
+        style={styles.linkLabel}
+        onPress={() => Linking.openURL(item?.url)}
+      >
+        - Acessar '{item?.label}'.
+      </Text>
+    );
   }
 
   return (
@@ -91,6 +106,16 @@ const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSu
         </>
       )}
 
+      {post.type === 'TEXT' && !isEmpty(post?.links) && (
+        <Pressable
+          style={styles.containerLinks}
+          onPress={() => setOpenModalLinks(true)}
+        >
+          <AntDesign name="link" size={24} color="black" />
+          <Text style={styles.titleLinks}>Links de referência</Text>
+        </Pressable>
+      )}
+
       {post.type === 'TEXT' && (
         <Pressable
           style={styles.commentContainer}
@@ -100,6 +125,18 @@ const ContentExclusivePost = ({ data, handleVote, handlePressComments, loadingSu
           <Text style={styles.commentText}>Comentários</Text>
         </Pressable>
       )}
+
+      <Modal
+        title={`Links de referência do conteúdo - ${post?.title}`}
+        visible={openModalLinks}
+        handleClose={() => setOpenModalLinks(false)}
+      >
+        <FlatList
+          data={post?.links}
+          renderItem={renderLink}
+          style={styles.listLinks}
+        />
+      </Modal>
     </View>
   );
 }
