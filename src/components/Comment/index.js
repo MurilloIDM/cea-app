@@ -143,9 +143,16 @@ const Comment = ({ data, studentId, handleReply, deleteCommentOrReply, validateA
             colors={["rgba(191, 179, 114, 0.8)", "rgb(191, 179, 114)"]}
             style={styles.avatarImgBkg}
           >
-            <Text style={styles.avatarTxt}>
-              {comment.avatarTitle}
-            </Text>
+            {comment.admin ?
+              <Image
+                source={Logo}
+                style={styles.avatarImgAdmin}
+              />
+              :
+              <Text style={styles.avatarTxt}>
+                {comment.avatarTitle}
+              </Text>
+            }
           </LinearGradient>
         </View>
 
